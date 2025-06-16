@@ -1,0 +1,73 @@
+---
+title: "Course Schedule"
+---
+
+*Meeting times:*
+
+* Monday, July 14, 9:00 AM – 5:00 PM
+* Tuesday July 15, 9:00 AM – 5:00 PM
+* Wednesday July 16, 9:00 AM – 12:00 PM
+
+*Location:* TBD
+
+::: {.callout-important}
+All times are in Eastern Daylight Time (EDT; UTC-4)
+:::
+
+## Day 01 – Monday 
+
+| Time                | Section |
+|:--------------------|:--------|
+| 08:30 am - 09:00 am | Module 0 (Alex and Zane) |
+| 09:00 am - 10:00 am | Module 1 () |
+| 10:00 am - 10:30 am | Coffee break |
+| 10:30 am - 11:15 am | Module 2 () |
+| 11:15 am - 11:30 am | Module 3 () |
+| 11:30 am - 12:00 pm | Module 4 () |
+| 12:00 pm - 01:30 pm | Lunch (2nd floor lobby) |
+| 01:30 pm - 02:15 pm | Module 5 () |
+| 02:15 pm - 02:45 pm | Exercise 1|
+| 02:45 pm - 03:00 pm | Start Module 6 () |
+| 03:00 pm - 03:30 pm | Coffee break |
+| 03:30 pm - 04:00 pm | Finish Module 6 () |
+| 04:00 pm - 05:00 pm | Module 7, exercise 2 in remaining time  () |
+| 05:00 pm - 07:00 pm | **Networking night** and poster session, Randal Rollins P01 |
+
+: {.striped .hover tbl-colwidths="[25,75]"}
+
+
+## Day 02 – Tuesday
+
+| Time                | Section |
+|:--------------------|:--------|
+| 08:30 am - 09:00 am | exercise review and questions / catchup () |
+| 09:00 am - 09:15 am | Module 8 () |
+| 09:15 am - 10:00 am | Data analysis walkthrough () |
+| 10:00 am - 10:30 am | Coffee break |
+| 10:30 am - 10:45 am | Exercise 3 work time |
+| 10:45 am - 11:15 am | Exercise review () |
+| 11:15 am - 12:00 pm | Module 9 () |
+| 12:00 pm - 01:30 pm | Lunch (2nd floor lobby); **Lunch and Learn!** |
+| 01:30 pm - 02:00 pm | Exercise 4 |
+| 02:00 pm - 02:30 pm | Exercise 4 review () |
+| 02:30 pm - 03:00 pm | Module 10 () |
+| 03:00 pm - 03:30 pm | Coffee break |
+| 03:30 pm - 04:00 pm | Exercise 5 |
+| 04:00 pm - 04:30 pm | Review exercise 5 () |
+| 04:30 pm - 05:00 pm | Module 11 () |
+
+: {.striped .hover tbl-colwidths="[25,75]"}
+
+## Day 03 – Wednesday
+
+| Time                | Section |
+|:--------------------|:--------|
+| 08:30 am - 09:00 am | Exercise 5 review |
+| 09:00 am - 09:30 am | Module 11 |
+| 09:30 am - 10:00 am | RMarkdown Practice |
+| 10:00 am - 10:30 am | Coffee break |
+| 10:30 am - 11:00 am | Module 12 |
+| 11:00 am - 11:30 am | Module 13 |
+| 11:30 am - 12:00 pm | Practice, review, questions |
+
+: {.striped .hover tbl-colwidths="[25,75]"}

@@ -1,0 +1,269 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "Meeting times:\nLocation: TBD",
+    "crumbs": [
+      "Course Schedule"
+    ]
+  },
+  {
+    "objectID": "schedule.html#day-01-monday",
+    "href": "schedule.html#day-01-monday",
+    "title": "Course Schedule",
+    "section": "Day 01 – Monday",
+    "text": "Day 01 – Monday\n\n\n\n\n\n\n\nTime\nSection\n\n\n\n\n08:30 am - 09:00 am\nModule 0 (Alex and Zane)\n\n\n09:00 am - 10:00 am\nModule 1 ()\n\n\n10:00 am - 10:30 am\nCoffee break\n\n\n10:30 am - 11:15 am\nModule 2 ()\n\n\n11:15 am - 11:30 am\nModule 3 ()\n\n\n11:30 am - 12:00 pm\nModule 4 ()\n\n\n12:00 pm - 01:30 pm\nLunch (2nd floor lobby)\n\n\n01:30 pm - 02:15 pm\nModule 5 ()\n\n\n02:15 pm - 02:45 pm\nExercise 1\n\n\n02:45 pm - 03:00 pm\nStart Module 6 ()\n\n\n03:00 pm - 03:30 pm\nCoffee break\n\n\n03:30 pm - 04:00 pm\nFinish Module 6 ()\n\n\n04:00 pm - 05:00 pm\nModule 7, exercise 2 in remaining time ()\n\n\n05:00 pm - 07:00 pm\nNetworking night and poster session, Randal Rollins P01",
+    "crumbs": [
+      "Course Schedule"
+    ]
+  },
+  {
+    "objectID": "schedule.html#day-02-tuesday",
+    "href": "schedule.html#day-02-tuesday",
+    "title": "Course Schedule",
+    "section": "Day 02 – Tuesday",
+    "text": "Day 02 – Tuesday\n\n\n\n\n\n\n\nTime\nSection\n\n\n\n\n08:30 am - 09:00 am\nexercise review and questions / catchup ()\n\n\n09:00 am - 09:15 am\nModule 8 ()\n\n\n09:15 am - 10:00 am\nData analysis walkthrough ()\n\n\n10:00 am - 10:30 am\nCoffee break\n\n\n10:30 am - 10:45 am\nExercise 3 work time\n\n\n10:45 am - 11:15 am\nExercise review ()\n\n\n11:15 am - 12:00 pm\nModule 9 ()\n\n\n12:00 pm - 01:30 pm\nLunch (2nd floor lobby); Lunch and Learn!\n\n\n01:30 pm - 02:00 pm\nExercise 4\n\n\n02:00 pm - 02:30 pm\nExercise 4 review ()\n\n\n02:30 pm - 03:00 pm\nModule 10 ()\n\n\n03:00 pm - 03:30 pm\nCoffee break\n\n\n03:30 pm - 04:00 pm\nExercise 5\n\n\n04:00 pm - 04:30 pm\nReview exercise 5 ()\n\n\n04:30 pm - 05:00 pm\nModule 11 ()",
+    "crumbs": [
+      "Course Schedule"
+    ]
+  },
+  {
+    "objectID": "schedule.html#day-03-wednesday",
+    "href": "schedule.html#day-03-wednesday",
+    "title": "Course Schedule",
+    "section": "Day 03 – Wednesday",
+    "text": "Day 03 – Wednesday\n\n\n\n\n\n\n\nTime\nSection\n\n\n\n\n08:30 am - 09:00 am\nExercise 5 review\n\n\n09:00 am - 09:30 am\nModule 11\n\n\n09:30 am - 10:00 am\nRMarkdown Practice\n\n\n10:00 am - 10:30 am\nCoffee break\n\n\n10:30 am - 11:00 am\nModule 12\n\n\n11:00 am - 11:30 am\nModule 13\n\n\n11:30 am - 12:00 pm\nPractice, review, questions",
+    "crumbs": [
+      "Course Schedule"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#welcome-to-sismid-workshop-introduction-to-r",
+    "href": "modules/Module00-Welcome.html#welcome-to-sismid-workshop-introduction-to-r",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Welcome to SISMID Workshop: Introduction to R!",
+    "text": "Welcome to SISMID Workshop: Introduction to R!\nAlex Edwards ()\nEmail: awinter@uga.edu\n\nZane Billings (he/him)\nPhD Candidate, Department of Epidemiology and Biostatistics\nEmail: Wesley.Billings@uga.edu",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#introductions",
+    "href": "modules/Module00-Welcome.html#introductions",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Introductions",
+    "text": "Introductions\n\nName?\nCurrent position / institution?\nOther intro questions",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#course-website",
+    "href": "modules/Module00-Welcome.html#course-website",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Course website",
+    "text": "Course website\n\nAll of the materials for this course can be found online here: here.\nThis contains the schedule, course resources, and online versions of all of our slide decks.\nThe Course Resources page contains download links for all of the data, exercises, and slides for this class.\nPlease feel free to download these resources and share them – all of the course content is under the Creative Commons BY-NC 4.0 license.",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#what-is-r",
+    "href": "modules/Module00-Welcome.html#what-is-r",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "What is R?",
+    "text": "What is R?\n\nR is a language and environment for statistical computing and graphics developed in 1991\nR is the open source implementation of the S language, which was developed by Bell laboratories in the 70s.\nThe aim of the S language, as expressed by John Chambers, is “to turn ideas into software, quickly and faithfully”",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#what-is-r-1",
+    "href": "modules/Module00-Welcome.html#what-is-r-1",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "What is R?",
+    "text": "What is R?\n\nRoss Ihaka and Robert Gentleman at the University of Auckland, New Zealand developed R\nR is both open source and open development",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#what-is-r-2",
+    "href": "modules/Module00-Welcome.html#what-is-r-2",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "What is R?",
+    "text": "What is R?\n\nR possesses an extensive catalog of statistical and graphical methods\n\nincludes machine learning algorithm, linear regression, time series, statistical inference to name a few.\n\nData analysis with R is done in a series of steps; programming, transforming, discovering, modeling and communicate the results",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#what-is-r-3",
+    "href": "modules/Module00-Welcome.html#what-is-r-3",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "What is R?",
+    "text": "What is R?\n\nProgram: R is a clear and accessible programming tool\nTransform: R is made up of a collection of packages/libraries designed specifically for statistical computing\nDiscover: Investigate the data, refine your hypothesis and analyze them\nModel: R provides a wide array of tools to capture the right model for your data\nCommunicate: Integrate codes, graphs, and outputs to a report with R Markdown or build Shiny apps to share with the world",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#why-r",
+    "href": "modules/Module00-Welcome.html#why-r",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Why R?",
+    "text": "Why R?\n\nFree (open source)\nHigh level language designed for statistical computing\nPowerful and flexible - especially for data wrangling and visualization\nExtensive add-on software (packages)\nStrong community",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#why-not-r",
+    "href": "modules/Module00-Welcome.html#why-not-r",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Why not R?",
+    "text": "Why not R?\n\nLittle centralized support, relies on online community and package developers\nAnnoying to update\nSlower, and more memory intensive, than the more traditional programming languages (C, Perl, Python)",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#is-r-difficult",
+    "href": "modules/Module00-Welcome.html#is-r-difficult",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Is R Difficult?",
+    "text": "Is R Difficult?\n\nShort answer – It has a steep learning curve, like all programming languages\nYears ago, R was a difficult language to master.\nHadley Wickham developed a collection of packages called tidyverse. Data manipulation became trivial and intuitive. Creating a graph was not so difficult anymore.",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#overall-workshop-objectives",
+    "href": "modules/Module00-Welcome.html#overall-workshop-objectives",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Overall Workshop Objectives",
+    "text": "Overall Workshop Objectives\nBy the end of this workshop, you should be able to\n\nstart a new project, read in data, and conduct basic data manipulation, analysis, and visualization\nknow how to use and find packages/functions that we did not specifically learn in class\ntroubleshoot errors",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#this-workshop-differs-from-introduction-to-tidyverse",
+    "href": "modules/Module00-Welcome.html#this-workshop-differs-from-introduction-to-tidyverse",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "This workshop differs from “Introduction to Tidyverse”",
+    "text": "This workshop differs from “Introduction to Tidyverse”\nWe will focus this class on using Base R functions and packages, i.e., pre-installed into R and the basis for most other functions and packages! If you know Base R then are will be more equipped to use all the other useful/pretty packages that exit.\nThe Tidyverse is one set of useful/pretty sets of packages, designed to can make your code more intuitive as compared to the original older Base R. Tidyverse advantages:\n\nconsistent structure - making it easier to learn how to use different packages\nparticularly good for wrangling (manipulating, cleaning, joining) data\n\nmore flexible for visualizing data",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#workshop-overview",
+    "href": "modules/Module00-Welcome.html#workshop-overview",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Workshop Overview",
+    "text": "Workshop Overview\n14 lecture blocks that will each:\n\nStart with learning objectives\nEnd with summary slides\nInclude mini-exercise(s) or a full exercise\n\nThemes that will show up throughout the workshop:\n\nReproducibility\nGood coding techniques\nThinking algorithmically\nBasic terms / R jargon",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#reproducibility",
+    "href": "modules/Module00-Welcome.html#reproducibility",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Reproducibility",
+    "text": "Reproducibility\n\nReproducible research: the idea that other people should be able to verify the claims you make – usually by being able to see your data and run your code.\n\n\n\n2023 was the US government’s year of open science – specific aspects of reproducibility will be mandated for federally funded research!\nSharing and documenting your code is a massive step towards making your work reproducible, and the R ecosystem can play a big role in that!",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#useful-free-resources",
+    "href": "modules/Module00-Welcome.html#useful-free-resources",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Useful (+ Free) Resources",
+    "text": "Useful (+ Free) Resources\nWant more?\n\nR for Data Science: http://r4ds.had.co.nz/\n(great general information)\nFundamentals of Data Visualization: https://clauswilke.com/dataviz/\nR for Epidemiology: https://www.r4epi.com/\nThe Epidemiologist R Handbook: https://epirhandbook.com/en/\nR basics by Rafael A. Irizarry: https://rafalab.github.io/dsbook/r-basics.html (great general information)\nOpen Case Studies: https://www.opencasestudies.org/\n(resource for specific public health cases with statistical implementation and interpretation)",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#useful-free-resources-1",
+    "href": "modules/Module00-Welcome.html#useful-free-resources-1",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Useful (+Free) Resources",
+    "text": "Useful (+Free) Resources\nNeed help?\n\nVarious “Cheat Sheets”: https://github.com/rstudio/cheatsheets/\nR reference card: http://cran.r-project.org/doc/contrib/Short-refcard.pdf\nR jargon: https://link.springer.com/content/pdf/bbm%3A978-1-4419-1318-0%2F1.pdf\nR vs Stata: https://link.springer.com/content/pdf/bbm%3A978-1-4419-1318-0%2F1.pdf\nR terminology: https://cran.r-project.org/doc/manuals/r-release/R-lang.pdf",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "modules/Module00-Welcome.html#installing-r",
+    "href": "modules/Module00-Welcome.html#installing-r",
+    "title": "Welcome to SISMID Workshop: Introduction to R",
+    "section": "Installing R",
+    "text": "Installing R\nHopefully everyone has pre-installed R and RStudio. We will take a moment to go around and make sure everyone is ready to go. Please open up your RStudio and leave it open as we check everyone’s laptops.\n\nInstall the latest version from: http://cran.r-project.org/\nInstall RStudio",
+    "crumbs": [
+      "Day 1",
+      "Welcome to SISMID Workshop: Introduction to R"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to “R Programming for Infectious Disease Modeling”!\nThis website contains all of the material for the 2025 Summer Institute in Modeling for Infectious Diseases (SISMID) Module “R Programming for Infectious Disease Modeling”.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "index.html#prerequisities",
+    "href": "index.html#prerequisities",
+    "title": "Welcome",
+    "section": "Prerequisities",
+    "text": "Prerequisities\nParticipants are expected to have a basic understanding of R, including how to open and write R scripts, read in data, and use basic functions and syntax. Participants are also expected to have prior knowledge of basic descriptive statistics and regression modeling consistent with an introductory statistical course.\nBefore the course begins, you should install R and RStudio on your laptop. If you are using an older version of R, you should update it before the course begins. You will need at least R version 4.4.1 for this course, but using the most recent version (4.5.1 at the time of writing) is always preferable. You’ll also need Quarto.\n\nYou can install R from the CRAN website by clicking on the correct download link for your OS.\nYou can install RStudio from the Posit website.\nYou can install the latest version of Quarto from the Quarto website, but if you have a relatively up-to-date version of RStudio, it will also come with Quarto.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "index.html#about-the-instructors",
+    "href": "index.html#about-the-instructors",
+    "title": "Welcome",
+    "section": "About the instructors",
+    "text": "About the instructors\n\n\n\nCo-Instructor: Alex Edwards\n\n\nAlex Edwards is an Instructor in the Department of Biostatistics and Bioinformatics at Emory University’s Rollins School of Public Health. With a robust background in healthcare and public health research, Alex brings a wealth of knowledge and experience to his teaching. He is an alumnus of the Rollins School of Public Health, where he earned his Master of Science in Public Health (MSPH) in 2017. Currently, Alex is pursuing his PhD at the Stellenbosch University, ZA, focusing on the spatial modeling of HIV multi-morbidity disorder in sub-Saharan Africa. Alex has published extensively on the intersection of HIV and non-communicable diseases, contributing valuable insights to the field. His dedication to advancing public health is evident in his teaching and research endeavors.\n\n\n\nCo-Instructor: Zane Billings\n\n\nZane Billings is a PhD student in Epidemiology and Biostatistics at the University of Georgia, working with Andreas Handel. He has been using R since 2017, and uses R for nearly all of his statistics and data science practice. Zane’s research focuses on the immune response to influenza vaccination, and uses machine learning and multilevel regression modeling (in R!) to improve our understanding of influenza immunology.",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Course Resources",
+    "section": "",
+    "text": "Data and Exercise downloads\n\nDownload all datasets here: click to download.\nDownload all exercises and solution files here: click to download\nDownload all slide decks here: click to download\nGet the example R Markdown document for Module 11 here: click to download\n\nAnd the sample bibligraphy “bib” file is here: click to download\nAnd the rendered HTML file is here: click to download\n\nCourse GitHub where all materials can be found (to download the entire course as a zip file click the green “Code” button): https://github.com/UGA-IDD/SISMID-2024.\n\n\n\nUseful (+ Free) Resources\n\nR for Data Science: http://r4ds.had.co.nz/\n(great general information)\nFundamentals of Data Visualization: https://clauswilke.com/dataviz/\nR for Epidemiology: https://www.r4epi.com/\nThe Epidemiologist R Handbook: https://epirhandbook.com/en/\nR basics by Rafael A. Irizarry: https://rafalab.github.io/dsbook/r-basics.html (great general information)\nOpen Case Studies: https://www.opencasestudies.org/\n(resource for specific public health cases with statistical implementation and interpretation)\n\n\n\nNeed help?\n\nVarious “Cheat Sheets”: https://github.com/rstudio/cheatsheets/\nR reference card: http://cran.r-project.org/doc/contrib/Short-refcard.pdf\n\nR jargon: https://link.springer.com/content/pdf/bbm%3A978-1-4419-1318-0%2F1.pdf\nR vs Stata: https://link.springer.com/content/pdf/bbm%3A978-1-4419-1318-0%2F1.pdf\nR terminology: https://cran.r-project.org/doc/manuals/r-release/R-lang.pdf\n\n\n\nOther references\n\n\nBatra, Neale, Alex Spina, Paula Blomquist, Finlay Campbell, Henry Laurenson-Schafer, Florence Isaac, Natalie Fischer, et al. 2021. epiR Handbook. Edited by Neale Batra. https://epirhandbook.com/; Applied Epi Incorporated.\n\n\nCarchedi, Nick, and Sean Kross. 2024. “Learn r, in r.” Swirl. https://swirlstats.com/.\n\n\nKeyes, David. 2024. R for the Rest of Us: A Statistics-Free Introduction. San Francisco, CA: No Starch Press.\n\n\nMatloff, Norman. 2011. The Art of R Programming. San Francisco, CA: No Starch Press.\n\n\nR Core team. 2024. An Introduction to R. https://cran.r-project.org/doc/manuals/r-release/R-intro.html.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. 2nd ed. Sebastopol, CA: https://r4ds.hadley.nz/; O’Reilly Media.\n\n\n\n\n\n\n\n\nReuseCC BY-NC 4.0",
+    "crumbs": [
+      "Course Resources"
+    ]
+  }
+]
