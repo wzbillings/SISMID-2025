@@ -1,0 +1,24 @@
+---
+title: "Module XX: Linear models and linear monsters"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+
+## Learning goals
+
+1. Fit and inspect linear and generalized linear models in R
+1. Use the R formula syntax to fit models with interactions and random effects.
+1. Use the R formula syntax to fit spline models.
+
+
+
+

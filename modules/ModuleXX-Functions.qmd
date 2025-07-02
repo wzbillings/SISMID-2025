@@ -258,7 +258,7 @@ for (i in 1:length(countries)) {
 
 Here we are going to set up a function that takes our data frame and outputs the median, first and third quartiles, and range of measles cases for a specified country.
 
-Step 1 - code/type our own function.  We specify two arguments, the first argument is our data frame and the second is one country's iso3 code.  Notice, I included common documentation for  
+Step 1 - code/type our own function.  We specify two arguments, the first argument is our data frame and the second is one country's iso3 code.  Notice, I included common documentation for the function.
 
 ```{r echo=FALSE, eval=FALSE}
 #' Get the median, first and third quartiles, and range of measles cases for a specified country

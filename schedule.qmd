@@ -8,7 +8,7 @@ title: "Course Schedule"
 * Tuesday July 15, 9:00 AM – 5:00 PM
 * Wednesday July 16, 9:00 AM – 12:00 PM
 
-*Location:* TBD
+*Location:* Room 201
 
 ::: {.callout-important}
 All times are in Eastern Daylight Time (EDT; UTC-4)

@@ -1,0 +1,26 @@
+---
+title: "Module XX: S3, R formulas, and linear models"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+
+## Learning goals
+
+1. Explain what S3 is and give an example of an S3 method
+1. Understand the R help pages for S3 methods
+1. Use vectorization to replace unnecessary loops
+1. Understand when and how to use the R formula syntax
+1. Write basic linear models with R formulas
+
+
+
+

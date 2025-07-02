@@ -1,0 +1,25 @@
+---
+title: "Module XX: Bootstrapping can be easy and fun"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+
+## Learning goals
+
+1. Understand the basics of bootstrapping -- be able to construct your own bootstrap resamples and calculate a bootstrap CI for a statistic.
+1. Make your own bootstraps with loops or functional programming.
+1. Combine your own knowledge of R programming techniques with the `boot` package for easy bootstrapping.
+1. Use the `rsample` package and advanced R programming techniques to iterate over lists of bootstrap resamples.
+
+
+
+

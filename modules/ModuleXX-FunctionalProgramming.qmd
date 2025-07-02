@@ -1,0 +1,124 @@
+---
+title: "ModuleXX-FunctionalProgramming"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+
+## Learning goals
+
+1. Define functional programming
+1. Use functional programming tools in base R to repeat multiple functional calls.
+1. Use the `purrr` package for easily mapping and reducing functions.
+
+## What is functional programming?
+
+. . .
+
+- All of our code is functional if it does its job?
+
+. . .
+
+- Yes, but we are using the technical definition of functional programming: programming that is based on functions.
+
+. . .
+
+- Specifically, we want to be able to compose functions, which you might remember hating in precalculus.
+
+$$g \circ f = g(f(x))$$
+
+- In computer science, a **functional** is a function that accepts a function as an argument, or returns a function. But that's all we'll say about technical details.
+
+## Functional vs. imperative programming
+
+- So far, we've been using **imperative** programming: we save variables, and we update them with new commands. Our code is structured as a list of instructions.
+
+- In **functional** programming, we write everything as a function, and we get the results we want by composing many functions.
+
+. . .
+
+- But we're just going to show you some useful parts of functional programming that you can include in your regular code.
+
+## Ok, but why?
+
+- Recall our function from the previous Module.
+
+```{r eval=TRUE, echo=TRUE}
+get_country_stats <- function(df, iso3_code){
+	
+	country_data <- subset(df, iso3c == iso3_code)
+	
+	# Get the summary statistics for this country
+	country_cases <- country_data$Cases
+	country_quart <- quantile(
+		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
+	)
+	country_range <- range(country_cases, na.rm = TRUE)
+	
+	country_name <- unique(country_data$country)
+	
+	country_summary <- data.frame(
+		country = country_name,
+		min = country_range[[1]],
+		Q1 = country_quart[[1]],
+		median = country_quart[[2]],
+		Q3 = country_quart[[3]],
+		max = country_range[[2]]
+	)
+	
+	return(country_summary)
+}
+```
+
+. . .
+
+- We could write a loop to get stats for many countries.
+
+```{r eval=TRUE, echo=TRUE}
+meas <- readRDS(here::here("data", "measles_final.Rds")) |>
+	subset(vaccine_antigen == "MCV1")
+country_codes <- c("IND", "PAK", "BGD", "NPL")
+
+# Loop setup
+out <- vector(mode = "list", length = length(country_codes))
+for (i in 1:length(out)) {
+	out[[i]] <- get_country_stats(meas, country_codes[[i]])	
+}
+
+out
+```
+
+. . .
+
+- But if we use a functional programming tool called `Map`, look how easy it is!
+
+```{r}
+out2 <- Map(function(c) get_country_stats(meas, c), country_codes)
+out2
+```
+
+- Functional programming techniques can help us avoid writing messy loops and clean up our code.
+
+## Functions are objects too
+
+## `Map`, `Reduce`, and `Filter` are basic functional tools
+
+-- Covid or measles data examples
+
+## `*apply()` and friends
+
+-- Example with transition matrix
+
+## the `purrr` package
+
+-- pmap example? and show purrr vs Map
+
+## You try it!
