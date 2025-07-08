@@ -182,14 +182,3 @@ Chunks can be given an optional label, e.g.
 -   You can control many other “whole document” settings by tweaking the parameters of the YAML header. You might wonder what YAML stands for: it’s “YAML Ain’t Markup Language"
 -   [***Be careful with the YAML!***]{.underline}
 
-## Bibliographies and citations {.unnumbered}
-
--   To add a citation using the visual editor, go to Insert \> Citation. Under the hood, the visual mode uses the standard Pandoc markdown representation for citations (e.g., [@citation]). If you add a citation using the visual editor, it will automatically create a bibliography.bib file
-
-Your document bibliography (a .bib file in the directory of your document)
-
-## Example
-
--   To create a citation within your .qmd file in the source editor, use a key composed of ‘\@’ + the citation identifier from the bibliography file. Then place the citation in square brackets. Here are some examples:
-
-![](images/28-bib.png){fig-align="center"}
