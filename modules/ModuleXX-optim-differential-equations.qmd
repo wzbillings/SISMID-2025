@@ -1,0 +1,248 @@
+---
+title: "Module XX: FP Applications"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+
+## Learning goals
+
+1. Use function-writing and functional programming techniques to deal with applied epidemiology problems.
+1. Optimize your own function with `optim()`.
+1. Simulate and solve differential equations with `deSolve`.
+
+# `optim()`
+
+## What is `optim()`
+
+- Generic R interface to optimization algorithms.
+- **Optimization**: for a function $f(x)$, find $x^\star$ so that $f(x^\star) \geq f(x)$ for any other $x$.
+- Takes a function to be **minimized** as an argument. (If you want the maximum, you need to put a negative sign.)
+
+## Simple example {.scrollable}
+
+- Find the maximum value of $f(x) = \sin(x)e^{-x^2}$.
+
+```{r}
+curve(
+	sin(x) * exp(-x^2),
+	from = -2, to = 2, n = 1000
+)
+```
+
+. . .
+
+```{r, eval = FALSE}
+optim(
+	par = your initial guess to start at,
+	fn = the function to optimize,
+	method = the method to use for optimization,
+	control = a list of other parameters
+)
+```
+
+. . .
+
+```{r}
+res <- optim(
+	par = 0,
+	fn = \(x) sin(x) * exp(-x^2),
+	method = "BFGS",
+	control = list(fnscale = -1) # This gets the maximum
+)
+res
+```
+
+. . .
+
+```{r}
+curve(
+	sin(x) * exp(-x^2),
+	from = -2, to = 2, n = 1000
+)
+abline(h = res$value, col = "red")
+abline(v = res$par, col = "red")
+```
+
+## Why use `optim()` {.incremental}
+
+- `lm()` and `glm()`, etc., do all of that stuff for me? Why do I need to do it by hand?
+- Sometimes you have a problem that doesn't fit neatly into a pre-written model!
+- We'll get to an example where this is true, but let's build our way up.
+
+## Optim sampling example {.scrollable}
+
+- Suppose you're in charge of monitoring mosquito traps for West Nile Virus at some health department (see, e.g., PMCID: PMC2631741).
+- You have 20 different traps you can check, and at each trap you select 10 mosquitoes for testing. We don't have enough money or good enough equipment to test all of those mosquitoes, so we pool them together and get an overall yes (1) or no (0) for presence of mosquitoes.
+- This month, 7 out of 20 traps tested positive.
+- Estimate the underlying mosquito infection risk from the pooled data using maximum likelihood.
+
+. . .
+
+- Note that you can do this as a binomial `glm()`. But this won't be true in our next example.
+- Let's work through the math you need.
+
+. . .
+
+- Given an infection rate, $p$, the probability that pool $i$ tests positive is
+$$
+1 - (1 - p)^{10}
+$$
+- The probability that 7 pools out of 20 tested positive is then
+$$
+{{7}\choose{20}} \bigg(1 - (1 - p)^{10}\bigg)^7 \bigg((1 - p)^{10}\bigg)^{20-7}
+$$
+- This is written in R as `dbinom(7, size = 20, prob = 1 - (1 - p)^10)`.
+- For technical reasons, it is easier to minimize the negative log likelihood than it is to directly maximize the likelihood.
+- You should write a function that gives the negative log likelihood and pass this function to `optim()` to find the best value of $p$.
+
+. . .
+
+```{r}
+initial_guess <- 7 / 20
+
+# You could write out the math for this function by hand if you wanted to
+# But dbinom uses some nice tricks to be faster and more accurate.
+nll <- function(p) {
+  nll <- -dbinom(7, size = 20, prob = 1 - (1 - p)^10, log = TRUE)
+  return(nll)
+}
+
+optim(
+	par = initial_guess,
+	fn = nll,
+	method = "L-BFGS-B", # Or "Brent"
+	lower = 0.001,
+	upper = 0.999
+)
+```
+
+- The output tells us that $p \approx 0.02$ has the minimal negative log-likelihood at 1.69, so from the data we have, this is the most likely mosquito infection rate.
+
+## Bonus stage!
+
+- Usually getting an approximate Wald-type confidence interval is very easy with `optim()`.
+- We need to refit the model with `hessian = TRUE`.
+
+```{r}
+res <- optim(
+	par = 0.1,
+	fn = nll,
+	method = "L-BFGS-B",
+	lower = 0.00001,
+	upper = 0.99999,
+	hessian = TRUE
+)
+est <- res$par
+se <- sqrt(1 / diag(res$hessian))
+
+# Approximate CI
+ci_lower <- est - 1.96 * se
+ci_upper <- est + 1.96 * se
+c(ci_lower, ci_upper)
+```
+
+- So in our report, we could say that we estimate an 4.2\% WNV infection risk for mosquitoes in our area with a 95\% CI of about 1.1\% to 7.3\%.
+
+## Optim advanced example {.scrollable}
+
+- Let's extend the binomial example to a situation where we don't have a built-in ML option in R.
+- In real life, your mosquito traps are probably **heterogeneous**. One process that can contribute to heterogeneity is **zero-inflation**: at some sites, there are no mosquitoes with WNV because WNV hasn't been introduced to that area yet.
+- So now we know that if we observe a negative trap, it could be because there's no WNV at all, or because we didn't catch any mosquitoes with WNV. Call the probability that WNV has been introduced into the trap region $\kappa$.
+
+. . .
+
+- We introduce $\kappa$ into our model by now modeling the probability that a pool tests positive as
+$$
+\kappa\bigg(1 - (1 - p)^{10}\bigg).
+$$
+- Now you just need to handle optimizing two parameters at one time.
+
+. . .
+
+```{r}
+nll_zip <- function(par) {
+  p_infect <- par[1]
+  kappa <- par[2]
+  
+  p_pos <- kappa * (1 - (1 - p_infect) ^ 10)
+  
+  nll <- -dbinom(7, 20, prob = p_pos, log = TRUE)
+  
+  return(nll)
+}
+
+initial_guess <- c(0.05, 0.5)
+res <- optim(
+	par = initial_guess,
+	fn = nll_zip,
+	method = "L-BFGS-B",
+	lower = rep(0.00001, 2),
+	upper = rep(0.99999, 2),
+	hessian = TRUE
+)
+est <- res$par
+se <- sqrt(1 / diag(res$hessian))
+
+# Approximate CI
+ci_lower <- est - 1.96 * se
+ci_upper <- est + 1.96 * se
+cat(
+	paste0("Infection risk: ", round(est[[1]], 2), " (", round(ci_lower[[1]], 2),
+				 ", ", round(ci_upper[[1]], 2), ")"),
+	paste0("Risk WNV in area: ", round(est[[2]], 2), " (", round(ci_lower[[2]], 2),
+				 ", ", round(ci_upper[[2]], 2), ")"),
+	sep = "\n"
+)
+```
+
+## You try it! (hard problem!)
+
+- Normally when we fit a linear regression model, we want to minimize the residual sum of squares,
+$$
+\sum_{i=1}^n\bigg( y_i - (\beta_0 + \beta_1 x_i) \bigg)^2.
+$$
+- If we have a lot of outliers though, it can sometimes give us a better model to minimize the **least absolute deviations** instead:
+$$
+\sum_{i=1}^n \bigg|y_i - (\beta_0 + \beta_1 x_i)\bigg|.
+$$
+- Using `optim()`, find the values of $\beta_0$ and $\beta_1$ that minimize the LAD for the data in `lad.txt`.
+
+## Problem solution {.scrollable}
+
+```{r}
+dat <- read.table(here::here("data", "lad.txt"), header = TRUE)
+
+lad <- function(par, x_vec, y_vec) {
+	b0 <- par[1]
+	b1 <- par[2]
+	
+	y_hat <- b0 + b1 * x
+	lad <- sum(abs(y - y_hat))
+	return(lad)
+}
+
+initial_reg <- lm(y ~ x, data = dat)
+initial_guess <- coef(initial_reg)
+
+lad_res <- optim(
+	par = initial_guess,
+	fn = \(par) lad(par, dat$x, dat$y),
+	method = "BFGS",
+	hessian = TRUE
+)
+lad_res
+```
+
+- For an extra super bonus problem (not solved here), figure out how to combine your `optim()` code with what we learned about bootstrapping to compare the Wald-type CI from the Hessian with a bootstrap CI.
+
+# `deSolve`
+

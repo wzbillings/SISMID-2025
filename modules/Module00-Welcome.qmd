@@ -31,7 +31,7 @@ Email: Wesley.Billings\@uga.edu
 
 -   Name?
 -   Current position / institution?
--   Other intro questions
+-   Most interesting pathogen/condition/exposure to you?
 
 ## Course website
 
@@ -45,154 +45,29 @@ Email: Wesley.Billings\@uga.edu
     of the course content is under the [Creative Commons BY-NC 4.0
     license](https://creativecommons.org/licenses/by-nc/4.0/).
 
-<!-- TODO: replace these slides, we should focus more on what we're doing --->
-
-## What is R?
-
--   R is a language and environment for statistical computing and
-    graphics developed in 1991
-
--   R is the open source implementation of the [S
-    language](https://en.wikipedia.org/wiki/S_(programming_language)),
-    which was developed by [Bell
-    laboratories](https://ca.slack-edge.com/T023TPZA8LF-U024EN26Q0L-113294823b2c-512)
-    in the 70s.
-
--   The aim of the S language, as expressed by John Chambers, is "to
-    turn ideas into software, quickly and faithfully"
-
-## What is R?
-
--   **R**oss Ihaka and **R**obert Gentleman at the University of
-    Auckland, New Zealand developed R
-
--   R is both [open source](https://en.wikipedia.org/wiki/Open_source)
-    and [open
-    development](https://en.wikipedia.org/wiki/Open-source_software_development)
-
-```{r, fig.alt="R logo", out.width = "20%", echo = FALSE, fig.align='center'}
-knitr::include_graphics("https://www.r-project.org/logo/Rlogo.png")
-```
-
-## What is R?
-
--   R possesses an extensive catalog of statistical and graphical
-    methods
-    -   includes machine learning algorithm, linear regression, time
-        series, statistical inference to name a few.
--   Data analysis with R is done in a series of steps; programming,
-    transforming, discovering, modeling and communicate the results
-
-## What is R?
-
--   Program: R is a clear and accessible programming tool
--   Transform: R is made up of a collection of packages/libraries
-    designed specifically for statistical computing
--   Discover: Investigate the data, refine your hypothesis and analyze
-    them
--   Model: R provides a wide array of tools to capture the right model
-    for your data
--   Communicate: Integrate codes, graphs, and outputs to a report with R
-    Markdown or build Shiny apps to share with the world
-
-## Why R?
-
--   Free (open source)
-
--   High level language designed for statistical computing
-
--   Powerful and flexible - especially for data wrangling and
-    visualization
-
--   Extensive add-on software (packages)
-
--   Strong community
-
-## Why not R?
-
--   Little centralized support, relies on online community and package
-    developers
-
--   Annoying to update
-
--   Slower, and more memory intensive, than the more traditional
-    programming languages (C, Perl, Python)
-
-## Is R Difficult?
-
--   Short answer – It has a steep learning curve, like all programming
-    languages
--   Years ago, R was a difficult language to master.
--   Hadley Wickham developed a collection of packages called tidyverse.
-    Data manipulation became trivial and intuitive. Creating a graph was
-    not so difficult anymore.
-
 ## Overall Workshop Objectives
 
 By the end of this workshop, you should be able to
 
-1.  start a new project, read in data, and conduct basic data
-    manipulation, analysis, and visualization
-2.  know how to use and find packages/functions that we did not
-    specifically learn in class
-3.  troubleshoot errors
-
-## This workshop differs from "Introduction to Tidyverse"
-
-We will focus this class on using **Base R** functions and packages,
-i.e., pre-installed into R and the basis for most other functions and
-packages! If you know Base R then are will be more equipped to use all
-the other useful/pretty packages that exit.
-
-The Tidyverse is one set of useful/pretty sets of packages, designed to
-can make your code more **intuitive** as compared to the original older
-Base R. **Tidyverse advantages**:
-
--   **consistent structure** - making it easier to learn how to use
-    different packages
--   particularly good for **wrangling** (manipulating, cleaning,
-    joining) data\
--   more flexible for **visualizing** data
-
-```{r, fig.alt="Tidyverse hex sticker", out.width = "10%", echo = FALSE, fig.align='center'}
-knitr::include_graphics("https://tidyverse.tidyverse.org/logo.png")
-```
+1. Write code that uses advanced R programming tools like control flow and custom functions.
+2. Use advanced R programming tools to answer interesting epidemiology questions.
+3. Be (more) prepared to use R in other SISMID modules
 
 ## Workshop Overview
 
-14 lecture blocks that will each:
+Multiple modules that will each:
 
 -   Start with learning objectives
 -   End with summary slides
--   Include mini-exercise(s) or a full exercise
+-   Include mini-exercises or practice problems
 
 Themes that will show up throughout the workshop:
 
 -   Reproducibility
 -   Good coding techniques
 -   Thinking algorithmically
--   [Basic terms / R
-    jargon](https://link.springer.com/content/pdf/bbm%3A978-1-4419-1318-0%2F1.pdf)
 
-## Reproducibility
-
--   **Reproducible research**: the idea that other people should be able
-    to verify the claims you make -- usually by being able to see your
-    data and run your code.
-
-```{r}
-#| echo: false
-#| fig-align: 'center'
-
-knitr::include_graphics(here::here("images", "repspectrum.JPG"))
-```
-
--   **2023 was the US government's year of open science** -- specific
-    aspects of reproducibility will be mandated for federally funded
-    research!
--   Sharing and documenting your code is a massive step towards making
-    your work reproducible, and the R ecosystem can play a big role in
-    that!
+Note that we listed a lot of topics on the course description, we won't have time to get in-depth with most of them. What are **you** most interested in learning?
 
 ## Useful (+ Free) Resources
 
@@ -235,10 +110,4 @@ knitr::include_graphics(here::here("images", "repspectrum.JPG"))
 
 ## Installing R
 
-Hopefully everyone has pre-installed R and RStudio. We will take a
-moment to go around and make sure everyone is ready to go. Please open
-up your RStudio and leave it open as we check everyone's laptops.
-
--   Install the latest version from: <http://cran.r-project.org/>
--   [Install
-    RStudio](https://www.rstudio.com/products/rstudio/download/)
+Hopefully everyone has pre-installed R and RStudio (and Quarto if needed). Let's take a minute to make sure everyone is set up and then jump in!

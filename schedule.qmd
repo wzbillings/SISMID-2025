@@ -18,16 +18,12 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 09:00 am | Module 0 (Alex and Zane) |
-| 09:00 am - 10:00 am | Module 1 () |
+| 08:30 am - 08:45 am | Module 0 (Alex and Zane) |
+| 09:00 am - 10:00 am | Module 1 and 2 (Alex) |
 | 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 11:15 am | Module 2 () |
-| 11:15 am - 11:30 am | Module 3 () |
-| 11:30 am - 12:00 pm | Module 4 () |
+| 10:30 am - 12:00 pm | finish Module 2 (Alex), Module 3 (Zane), Module 4 (Alex) |
 | 12:00 pm - 01:30 pm | Lunch (2nd floor lobby) |
-| 01:30 pm - 02:15 pm | Module 5 () |
-| 02:15 pm - 02:45 pm | Exercise 1|
-| 02:45 pm - 03:00 pm | Start Module 6 () |
+| 01:30 pm - 03:00 pm | Module 5 () |
 | 03:00 pm - 03:30 pm | Coffee break |
 | 03:30 pm - 04:00 pm | Finish Module 6 () |
 | 04:00 pm - 05:00 pm | Module 7, exercise 2 in remaining time  () |

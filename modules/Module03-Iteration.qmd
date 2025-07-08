@@ -1,5 +1,5 @@
 ---
-title: "Module XX: Iteration and vectorization in R"
+title: "Module 3: Iteration and vectorization in R"
 format:
   revealjs:
     toc: false
@@ -17,6 +17,26 @@ library(printr)
 
 1. Replace repetitive code with a `for` loop
 1. Use vectorization to replace unnecessary loops
+
+## Repeating code
+
+* We often want to run the same code many times, replacing just one or a few parts.
+
+```{r}
+penguins$bill_depth_mm[penguins$island == "Biscoe"] |>
+		mean(na.rm = TRUE) |>
+		round(digits = 2)
+
+penguins$bill_depth_mm[penguins$island == "Dream"] |>
+		mean(na.rm = TRUE) |>
+		round(digits = 2)
+
+penguins$bill_depth_mm[penguins$island == "Torgersen"] |>
+		mean(na.rm = TRUE) |>
+		round(digits = 2)
+```
+
+* We can do this ourselves if we only have a small list of changes. But imagine if there were 1000 islands instead!
 
 ## What is iteration?
 
@@ -256,6 +276,9 @@ arguments all at the same time.
 * But technically no, because we can use **vectorization**.
 * Almost all basic operations in R are **vectorized**: they work on a vector of
 arguments all at the same time.
+* (Technical note: actually, vectorized operations still do a loop. But they do the loop inside a compiled C program, which is much faster than R loops.)
+
+. . .
 
 ```{r}
 # No loop needed!
@@ -488,6 +511,26 @@ partially transparent, so you can see the overlap.
 cases (not standardized) over time for all of the countries. (Dealing with
 the NA's here is tricky!!)
 
+## Main problem hint
+
+```{r, eval = FALSE}
+meas$cases_per_thousand <- meas$Cases / as.numeric(meas$total_pop) * 1000
+countries <- unique(meas$country)
+
+plot(
+	NULL, NULL,
+	xlim = c(1980, 2022),
+	ylim = c(0, 50),
+	xlab = "Year",
+	ylab = "Incidence per 1000 people"
+)
+
+for (...) {
+	...
+}
+```
+
+
 ## Main problem solution
 
 ```{r, eval = FALSE}
@@ -610,6 +653,7 @@ text(
 )
 ```
 
+<!--
 ## More practice on your own {.smaller}
 
 * Merge the `countries-regions.csv` data with the `measles_final.Rds` data.
@@ -624,4 +668,4 @@ vaccination on infection for each of the age ranges. How does the odds ratio
 change as age increases? Can you formalize this analysis by fitting a logistic
 regression model with `age_months` and vaccination as predictors?
 
-
+-->
