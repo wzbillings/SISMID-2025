@@ -1,0 +1,278 @@
+---
+title: "Module XX: Unlimited Power"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+## Learning goals
+
+1. Compare analytic power methods with power simulations.
+1. Be able to draw simulated power curves for complicated models
+
+## Calculating power {.scrollable}
+
+- For this example, we'll use birthweight data from the `MASS` package, called `birthwt`. You can load this data using the `data()` function.
+
+```{r}
+# Saves a global object called birthwt
+data(birthwt, package = "MASS")
+```
+
+- Let's do a two sample $t$-test for birth weight (`bwt`) for mothers who smoke and don't smoke (`smoke`).
+
+```{r}
+smoke_test <- t.test(bwt ~ smoke, data = birthwt)
+smoke_test
+```
+
+. . .
+
+- We can also calculate the power of this test. It takes a little bit of finagling, but it's not too hard.
+- You could also use [G Power](https://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower) to do this, and it would probably be easier.
+- Side note: aggregate is a great way to use formulas for grouped calculations.
+
+```{r}
+group_sample_sizes <- aggregate(bwt ~ smoke, data = birthwt, FUN = length)
+group_means <- aggregate(bwt ~ smoke, data = birthwt, FUN = mean)
+group_sds <- aggregate(bwt ~ smoke, data = birthwt, FUN = sd)
+power.t.test(
+	# Use the average group sample size
+	n = mean(group_sample_sizes$bwt),
+	# d = TRUE difference in means / so we use our post-hoc observation
+	delta = diff(group_means$bwt),
+	# Pool the SD's
+	sd = sqrt(mean(group_sds$bwt ^ 2)),
+	# Alpha level of test
+	sig.level = 0.05,
+	# Details about the test
+	type = "two.sample",
+	alternative = "two.sided"
+)
+```
+
+- We can an estimated power of about 78\%. Of course this is post-hoc power so it's basically useless.
+
+. . .
+
+- The G Power calculation is actually a bit more flexible.
+
+![From G Power where I typed the numbers in.](../images/gpower.png)
+
+- The estimate is a bit different because of how G Power deals with unequal sample sizes between groups.
+
+## The real power of power
+
+- Power is much more useful when it isn't **post-hoc**. That is, we should use power to plan our studies, rather than calculate the power after we do a test.
+- The most common application of power is *sample size estimation.*
+
+. . .
+
+- If we want to do a t-test between two groups, we can calculate the sample size we need to achieve a specific power and alpha level for a test, assuming some underlying effect size and variability.
+- For a study that requires an unpaired t-test, let's calculate the required sample size to achieve typical targets of $\alpha = 0.05$ and $1 - \beta = 0.8$. For this example we'll assume that our effect is standardized, so a clinically meaningful effect size is $0.1$. We'll assume for this example that the SD is $0.25$.
+
+. . .
+
+- Hint: you need to specify different arguments in `power.t.test()` this time.
+
+```{r, eval = FALSE}
+power.t.test(,
+	delta = ...,
+	sd = ...,
+	sig.level = ...,
+	power = ...,
+	# Details about the test
+	type = "two.sample",
+	alternative = "two.sided"
+)
+```
+
+. . .
+
+- Solution: we need about 100 people in each group, so 200 total.
+
+```{r}
+power.t.test(,
+	delta = 0.1,
+	sd = 0.25,
+	sig.level = 0.05,
+	power = 0.80,
+	# Details about the test
+	type = "two.sample",
+	alternative = "two.sided"
+)
+```
+
+. . .
+
+- What if we don't know the effect size or standard deviation?
+
+## Power curves {.scrollable}
+
+- We can *often* get a good idea about the SD from the literature or from knowledge about how our assay/measurement works, so we'll ignore that for now (it is harder for observational studies than for experiments).
+- But in general we have no idea what the effect size (difference in means) should be before we do the study. So how do we get the power or sample size?
+
+. . .
+
+- We can calculate the required sample size to achieve multiple different effect sizes. For the `birthwt` example, let's pretend we didn't run our study yet, but we know that the pooled sd should be around 700. Let's calculate the sample size needed to achieve 80\% power at multiple effect sizes.
+- In real life, maybe we can get this magical 700 number from previous studies or preliminary data.
+
+. . .
+
+- We can use the tools we've learned to get many different sample size calculations.
+
+```{r}
+effect_sizes <- seq(10, 500, 10)
+sample_size_calc <- lapply(
+	effect_sizes,
+	\(d) power.t.test(delta = d, sd = 700, sig.level = 0.05, power = 0.80)
+)
+str(sample_size_calc, 1)
+```
+
+. . .
+
+- But how do we get the sample size out of each power object thing? Fortunately `power.t.test()` returns an S3 object of class `power.htest`, and the documentation tells us how to get the quantities we want.
+- We also want to round the estimate up to the nearest whole number and (optionally, but I prefer this) multiply by two for the total sample size.
+
+```{r}
+sample_size <- sapply(sample_size_calc, \(x) ceiling(x$n) * 2)
+```
+
+. . .
+
+- We can now generate a "power curve", a plot of the (log) sample size needed vs. the effect size.
+
+```{r}
+plot(
+	effect_sizes,
+	log10(sample_size),
+	xlab = "Effect size to detect at alpha = 0.05, power = 0.8",
+	ylab = "Log10 sample size needed",
+	type = "l"
+)
+```
+
+## You try it! Power contours {.scrollable}
+
+- If we're willing to do a little bit more wrangling, we can also do this for multiple variances.
+- Here's some code to help you get started, and then you can try to calculate the sample sizes yourself. First, make a grid of all the effect size and variance combinations we want to try.
+- Note that the more values of delta and SD you want to try, the grid can become huge really quickly which could take a long time to run.
+
+```{r}
+power_variables <- expand.grid(
+	delta = effect_sizes,
+	sd = seq(100, 1000, 100)
+)
+```
+
+. . .
+
+- Now because they are in a grid, you can do a 1-dimensional loop or `lapply()`, instead of having to do a nested one, just iterate over the number of rows in the grid.
+
+```{r, eval = FALSE}
+power_sim_sd <-
+	lapply(
+		1:nrow(power_variables),
+		\(i) power.t.test(
+			...
+		)
+	)
+
+```
+
+
+. . .
+
+- My solution:
+
+```{r}
+power_sim_sd <-
+	lapply(
+		1:nrow(power_variables),
+		\(i) power.t.test(
+			delta = power_variables[i, "delta"],
+			sd = power_variables[i, "sd"],
+			sig.level = 0.05, power = 0.80
+		)
+	)
+
+power_variables$sample_size <- sapply(power_sim_sd, \(x) ceiling(x$n) * 2)
+```
+
+. . .
+
+- There are two main ways people will try to plot these curves. One is by plotting a different colored curve for each SD.
+
+```{r}
+plot(
+	NULL, NULL,
+	xlim = range(effect_sizes),
+	ylim = range(log10(power_variables$sample_size)),
+	xlab = "Effect size to detect at alpha = 0.05, power = 0.8",
+	ylab = "Log10 sample size needed",
+	type = "l"
+)
+
+variance_levels <- unique(power_variables$sd)
+colors <- colorRampPalette(c("lightblue", "darkblue"))(length(variance_levels))
+for (i in 1:length(variance_levels)) {
+	sub <- subset(power_variables, sd == variance_levels[[i]])
+	lines(x = sub$delta, y = log10(sub$sample_size), col = colors[[i]])
+}
+```
+
+. . .
+
+- If you know `ggplot2`, this is way easier in `ggplot2`.
+
+```{r}
+library(ggplot2)
+ggplot(power_variables) +
+	aes(x = delta, y = log10(sample_size), color = sd, group = sd) +
+	geom_line() +
+	labs(
+	x = "Effect size to detect at alpha = 0.05, power = 0.8",
+	y = "Log10 sample size needed"
+	) +
+	theme_minimal()
+```
+
+. . .
+
+- Mathematicians love to plot this as a "contour plot". These are basically impossible to read but look impressive.
+- This is insanely annoying to do in base R, so I'll only show it in `ggplot2`.
+
+```{r}
+ggplot(power_variables) +
+	aes(x = delta, y = sd, z = log10(sample_size)) +
+	geom_contour_filled() +
+	coord_cartesian(expand = FALSE) +
+	labs(
+		x = "Effect size to detect at alpha = 0.05, power = 0.8",
+		y = "Assumed pooled SD",
+		fill = "Log10 sample sized need"
+	) +
+	theme_minimal() +
+	theme(legend.position = "bottom")
+```
+
+## Power simulations {.scrollable}
+
+- Power calculations are "non-analytic" for nearly all hypothesis tests, except for very simple ones.
+- Simulation is a much more robust way to estimate power, because it works for any test.
+- As an example, we'll first walk through simulating the power for the same t-test we just did.
+
+. . .
+
+```{r}
+
+```
+

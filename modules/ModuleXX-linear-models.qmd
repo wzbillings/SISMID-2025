@@ -1,0 +1,40 @@
+---
+title: "Module XX: Linear Models and Linear Monsters"
+format:
+  revealjs:
+    toc: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(printr)
+```
+
+## Learning goals
+
+1. Fit basic linear and generalized linear models including models for counts.
+1. Fit GLMs with interaction terms.
+1. Fit GLMs with random effects using `lme4`.
+
+Optional topics:
+1. Fit GLMs with spline terms using `mgcv`.
+1. Fit binomial and overdispersed binomial models, and compare them to bernoulli models on the same data.
+1. Understand the limitations of frequentist linear models and know that `brms` exists.
+
+## Linear regression {.scrollable}
+
+## Logistic regression {.scrollable}
+
+## Poisson regression {.scrollable}
+
+## Interactions {.scrollable}
+
+## Random effects {.scrollable}
+
+## Splines {.scrollable}
+
+## Binomial regression {.scrollable}
+
+## Bayesian models {.scrollable}
