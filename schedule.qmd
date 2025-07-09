@@ -23,10 +23,9 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 | 10:00 am - 10:30 am | Coffee break |
 | 10:30 am - 12:00 pm | finish Module 2 (Alex), Module 3 (Zane), Module 4 (Alex) |
 | 12:00 pm - 01:30 pm | Lunch (2nd floor lobby) |
-| 01:30 pm - 03:00 pm | Module 5 () |
+| 01:30 pm - 03:00 pm | Module 5 and 6 (Zane), Exercise 1 work time |
 | 03:00 pm - 03:30 pm | Coffee break |
-| 03:30 pm - 04:00 pm | Finish Module 6 () |
-| 04:00 pm - 05:00 pm | Module 7, exercise 2 in remaining time  () |
+| 03:30 pm - 05:00 pm | Data science walkthrough 1, exercise 1 work time, questions |
 | 05:00 pm - 07:00 pm | **Networking night** and poster session, Randal Rollins P01 |
 
 : {.striped .hover tbl-colwidths="[25,75]"}
@@ -36,21 +35,13 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 09:00 am | exercise review and questions / catchup () |
-| 09:00 am - 09:15 am | Module 8 () |
-| 09:15 am - 10:00 am | Data analysis walkthrough () |
+| 08:30 am - 10:00 am | catch-up, Module 7 (Zane), Module 8 (Alex) |
 | 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 10:45 am | Exercise 3 work time |
-| 10:45 am - 11:15 am | Exercise review () |
-| 11:15 am - 12:00 pm | Module 9 () |
+| 10:30 am - 12:00 pm | TBD |
 | 12:00 pm - 01:30 pm | Lunch (2nd floor lobby); **Lunch and Learn!** |
-| 01:30 pm - 02:00 pm | Exercise 4 |
-| 02:00 pm - 02:30 pm | Exercise 4 review () |
-| 02:30 pm - 03:00 pm | Module 10 () |
+| 01:30 pm - 03:00 pm | TBD |
 | 03:00 pm - 03:30 pm | Coffee break |
-| 03:30 pm - 04:00 pm | Exercise 5 |
-| 04:00 pm - 04:30 pm | Review exercise 5 () |
-| 04:30 pm - 05:00 pm | Module 11 () |
+| 03:30 pm - 05:00 pm | TBD |
 
 : {.striped .hover tbl-colwidths="[25,75]"}
 
@@ -58,12 +49,8 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 09:00 am | Exercise 5 review |
-| 09:00 am - 09:30 am | Module 11 |
-| 09:30 am - 10:00 am | RMarkdown Practice |
+| 08:30 am - 09:00 am | Review or advanced topics |
 | 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 11:00 am | Module 12 |
-| 11:00 am - 11:30 am | Module 13 |
-| 11:30 am - 12:00 pm | Practice, review, questions |
+| 10:30 am - 12:00 pm | Review or advanced topics |
 
 : {.striped .hover tbl-colwidths="[25,75]"}

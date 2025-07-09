@@ -12,7 +12,6 @@ format:
 library(printr)
 ```
 
-
 ## Learning goals
 
 1. Explain what S3 is and give an example of an S3 method
