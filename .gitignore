@@ -45,3 +45,6 @@ rsconnect/
 
 # MacOS .DS_Store
 .DS_Store
+
+# Temporary excel files
+*$*

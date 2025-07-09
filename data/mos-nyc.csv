@@ -1,4 +1,4 @@
-Country,PCR Positive,Pools submitted
+County,PCR Positive,Pools submitted
 Albany,0,70
 Broome,0,5
 Cattaraugus,0,39
@@ -25,4 +25,3 @@ Bronx,6,298
 Manhattan,17,262
 Queens,5,683
 Staten Island,131,935
-NYC,171,2459
