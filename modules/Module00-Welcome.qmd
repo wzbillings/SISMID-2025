@@ -36,7 +36,7 @@ Email: Wesley.Billings\@uga.edu
 ## Course website
 
 -   All of the materials for this course can be found online here:
-    [here](https://wzbillings.github.io/SISMID-2025/).
+    https://wzbillings.github.io/SISMID-2025/.
 -   This contains the schedule, course resources, and online versions of
     all of our slide decks.
 -   The **Course Resources** page contains download links for all of the

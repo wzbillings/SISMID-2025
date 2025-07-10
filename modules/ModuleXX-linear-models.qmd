@@ -30,12 +30,12 @@ Optional topics:
 - So we have a choice ahead of us: we can either introduce many different datasets, or use a completely fabricated dataset where we know the truth and can ensure that these statistical problems are present.
 - We have elected for the latter solution, except for the final section on binomial models.
 
-## (Simulated) hemolytic anemia dataset
+## (Simulated) city cases dataset
 
-- Suppose the Queen of Caldwych is holding court in her capital city of Hightwell when her Royal Chief Epidemiologist (you can pretend that's you, if you want) tells her, "Your Grace! I fear the grimbleth in our nation's water supply is a cause of excess cases of hemolytic anemia beyond what can be explained by other factors!"
-- Being a kind and benevolent monarch, the Queen immediately commissions a 3 year prospective study to identify all incident cases of hemolytic anemia in a spatially representative sample of 23 cities in Caldwych, including Hightwell. She also provides funding for a representative sampling of the concentration of grimbleth in the municipal drinking water supply using the latest and greatest assay that can detect parts per million to the nearest hundreth accurately.
+- Suppose the Queen of Caldwych is holding court in her capital city of Hightwell when her Royal Chief Epidemiologist (you can pretend that's you, if you want) tells her, "Your Grace! I fear the grimbleth in our nation's water supply is a cause of excess cases of Klaron's gortensia beyond what can be explained by other factors!"
+- Being a kind and benevolent monarch, the Queen immediately commissions a 3 year prospective study to identify all incident cases of Klaron's gortensia in a spatially representative sample of 23 cities in Caldwych, including Hightwell. She also provides funding for a representative sampling of the concentration of grimbleth in the municipal drinking water supply using the latest and greatest assay that can detect parts per million to the nearest hundreth accurately.
 - You can also assume the temperature and population measurements are completely accurate.
-
+- You know that Klaron's gortensia is a chronic multifactorial condition with no single deterministic cause. Several environmental, (epi)genetic, and time-varying exposures can contribute to the development of Klaron's gortensia. You can assume that we have a 100\% accurate diagnostic method for Klaron's gortensia 
 
 
 ## Interactions {.scrollable}

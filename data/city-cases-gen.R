@@ -6,7 +6,6 @@ library(MASS)      # for rnegbin
 library(dplyr)     # for data manipulation
 library(tidyr)     # for nesting
 library(purrr)     # for functional programming
-library(splines)   # for natural splines
 library(ggplot2)
 
 set.seed(2025)

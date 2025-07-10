@@ -181,4 +181,3 @@ Chunks can be given an optional label, e.g.
 
 -   You can control many other “whole document” settings by tweaking the parameters of the YAML header. You might wonder what YAML stands for: it’s “YAML Ain’t Markup Language"
 -   [***Be careful with the YAML!***]{.underline}
-
