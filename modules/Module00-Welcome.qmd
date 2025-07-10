@@ -69,6 +69,12 @@ Themes that will show up throughout the workshop:
 
 Note that we listed a lot of topics on the course description, we won't have time to get in-depth with most of them. What are **you** most interested in learning?
 
+## Course structure
+
+- We'll start the course with some fundamentals.
+- These include advanced programming techniques, applications of those programming techniques, and just some neat things we think will help prepare you for infectious disease modeling.
+- We'll have time to cover a few specialized topics, if we run out of time to cover them all, we'll do them in order of interest.
+
 ## Useful (+ Free) Resources
 
 **Want more?**

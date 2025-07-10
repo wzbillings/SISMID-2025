@@ -677,7 +677,7 @@ res <- optim(
 	par = c(0.1, 0.1),
 	fn = sir_pred,
 	hessian = TRUE,
-	# Use simulated annealing, which is often better for these kind of problems.
+	# Use simulated annealing, which can be better for these kind of problems.
 	method = "SANN"
 )
 

@@ -269,10 +269,409 @@ ggplot(power_variables) +
 - Power calculations are "non-analytic" for nearly all hypothesis tests, except for very simple ones.
 - Simulation is a much more robust way to estimate power, because it works for any test.
 - As an example, we'll first walk through simulating the power for the same t-test we just did.
+- Remember that **power is the chance that a false null hypothesis will be rejected.**
+
+. . .
+
+1. Choose the parameters for the simulation. These include all of the TRUE parameters for the data we hope to collect, the significance level, and the number of simulations.
+
+```{r}
+N_sims <- 10000
+alpha <- 0.05
+
+# T-test parameter
+# Number of samples
+n1 <- 115
+n2 <- 74
+# Group means
+mu1 <- 2500
+mu2 <- 2200
+# Group SD
+sd1 <- 750
+sd2 <- 650
+```
+
+2. Now we generate `N_sims` number of datasets from a model described by the $t$-test: that is, we draw `n1` observations from a normal distribution wiht mean `mu1` and sd `sd1`, and likewise for group 2.
+
+```{r}
+simulate_one_dataset <- function(n1, n2, mu1, mu2, sd1, sd2) {
+	group1_y <- rnorm(n1, mu1, sd1)
+	group2_y <- rnorm(n2, mu2, sd2)
+	
+	out <- list(group1 = group1_y, group2 = group2_y)
+	return(out)
+}
+
+# replicate() is just a fancy way to use lapply() when the function
+# you want to repeat doesn't depend on any iteration-specific argument
+simulated_data <- replicate(
+	N_sims,
+	simulate_one_dataset(n1, n2, mu1, mu2, sd1, sd2),
+	# Set simplify = FALSE or you get a weird array thats hard to understand
+	simplify = FALSE
+)
+```
+
+3. Now we do a (Welch's two-sample) t-test on each simulated dataset. Note that in our true data generating process, the null hypothesis is always false by design. (*This is one of the times where it's easier NOT to use a formula!*)
+
+```{r}
+simulated_t_tests <- lapply(
+	simulated_data,
+	\(d) t.test(d$group1, d$group2, conf.level = alpha)
+)
+```
+
+4. Now we count the t-tests that correctly rejected the null hypothesis, i.e. $p \leq \alpha$.
+
+```{r}
+simulation_p_values <- sapply(simulated_t_tests, \(x) x$p.value)
+rejected_h0 <- simulation_p_values <= alpha
+```
+
+5. Now we calculate the power of our test as the probability that a simulated test rejected H0. Note that we even compute a confidence interval for our power here, although its interpretation is a bit tricky it can tell us a range of powers that are *consistent with our simulation*.
+
+```{r}
+# We can use this function to get the exact CI (Clopper-Pearson) for us
+# Just ignore the p-value, it doesn't make sense!!
+binom.test(sum(rejected_h0), N_sims)
+```
+
+6. Interpretation: the power of our test after 10,000 replicates was about 83\%, and our CI is pretty tight around this number. If this wasn't post-hoc, we would say that the planned sample sizes achieve our goal of $80\%$ power at $\alpha = 0.05$.
+
+## You try it!
+
+- More often, we want to know what sample size it takes to get 80\% power for a fixed leve
+- The only way to do this by simulation is to try many sample sizes and do a simulation for each one.
+- For the t-test example (this time you can assume the sample size for the two groups is the same to make life easier), make a plot of power vs. sample size, using the same group means and group SDs.
+
+. . .
+
+- Hint: write a function that simulates the data, does the t-tests, and gets which tests are rejections. Then, `lapply()` this function over multiple values of `n` (this is easy if you assume `n1` and `n2` are equal).
+
+. . .
+
+- Hint: here's an outline for my function, and the code for how I used it.
+- I returned the entire vector of TRUE/FALSE for rejections from the function, because I thought this was a convenient way to handle the data. You can do the sum() or mean() inside of the function and return a single number if you prefer that.
+
+```{r, eval = FALSE}
+simulate_t_test_power <- function(N_sim, n1, n2, mu1, mu2, sd1, sd2, alpha = 0.05) {
+	simulated_data <-
+		replicate(
+			N_sims,
+			simulate_one_dataset(n1, n2, mu1, mu2, sd1, sd2),
+			simplify = FALSE
+		)
+	
+	simulated_t_tests <- lapply(
+		simulated_data,
+		\(d) ...
+	)
+	
+	simulation_p_values <- sapply(simulated_t_tests, ...)
+	rejected_h0 <- ...
+	
+	return(rejected_h0)
+}
+
+n_per_group <- seq(...)
+
+t_test_n_simulations <- sapply(
+	n_per_group,
+	\(n) simulate_t_test_power(
+		1000,
+		n, n,
+		mu1, mu2, sd1, sd2
+	)
+)
+```
+
+. . .
+
+- Hint: after I ran this function, here's how I got the power for each sample size.
+
+```{r, eval = FALSE}
+colMeans(t_test_n_simulations)
+```
+
+. . .
+
+- Here's my solution.
+
+```{r}
+simulate_t_test_power <- function(N_sim, n1, n2, mu1, mu2, sd1, sd2, alpha = 0.05) {
+	simulated_data <-
+		replicate(
+			N_sims,
+			simulate_one_dataset(n1, n2, mu1, mu2, sd1, sd2),
+			simplify = FALSE
+		)
+	
+	simulated_t_tests <- lapply(
+		simulated_data,
+		\(d) t.test(d$group1, d$group2, conf.level = alpha)
+	)
+	
+	simulation_p_values <- sapply(simulated_t_tests, \(x) x$p.value)
+	rejected_h0 <- simulation_p_values <= alpha
+	
+	return(rejected_h0)
+}
+
+# You can do less of these
+# and make N_sim lower
+# if this takes too long
+n_per_group <- seq(25, 250, 25)
+
+set.seed(102)
+t_test_n_simulations <- sapply(
+	n_per_group,
+	\(n) simulate_t_test_power(
+		1000,
+		n, n,
+		mu1, mu2, sd1, sd2
+	)
+)
+
+# sapply() gives us a matrix that we can easily apply() on to get summaries
+# or use colMeans() cause its super fast and easy
+res <- colMeans(t_test_n_simulations)
+res
+```
+
+. . .
+
+- By looking at these results, it's clear where we can do a second simulation to hone in on a better sample size -- between the 3rd and 4th levement of `n_per_group` we get to our target.
+
+```{r}
+# Interpolate between those two numbers, but don't repeat them
+# cause we already did those sims!
+n_per_group2 <- seq(n_per_group[3], n_per_group[4], 1)
+n_per_group2_trim <- n_per_group2[2:(length(n_per_group2) - 1)]
+
+set.seed(103)
+t_test_n_simulations2 <- sapply(
+	n_per_group2_trim,
+	\(n) simulate_t_test_power(
+		1000,
+		n, n,
+		mu1, mu2, sd1, sd2
+	)
+)
+
+# sapply() gives us a matrix that we can easily apply() on to get summaries
+# or use colMeans() cause its super fast and easy
+res2 <- colMeans(t_test_n_simulations2)
+res2
+```
+
+. . .
+
+- Now I'll show you a neat trick to combine these simulations together and make a plot.
+
+```{r}
+all_n <- c(n_per_group, n_per_group2_trim)
+all_res <- c(res, res2)
+sort_order <- order(all_n)
+
+plot(
+	all_n[sort_order], all_res[sort_order],
+	type = "l",
+	xlab = "Sample size", ylab = "Power"
+)
+# Find the smallest sample size with a power above 0.8
+best_samp_size <- min(all_n[all_res > 0.8])
+bss_power <- all_res[all_n == best_samp_size]
+
+abline(h = bss_power, col = "red", lty = 2)
+abline(v = best_samp_size, col = "red", lty = 2)
+```
+
+## Setting up a power simulation for logistic regression
+
+- Simulating power is a MUST when we need to use a more complex model. For example, we have to do simulation to get the power of logistic regression.
+- I'll walk you through the data generating code and the correct p-value to check, but I'll let you fill in the code details.
+
+. . .
+
+-  Recall that the model we fit for logistic regression is something like this.
+
+$$
+y_i \sim \text{Bernoulli}(p_i) \\
+\text{logit}(p_i) = \beta_0 + \beta_1 x_i \\
+$$
+
+- So the things we need to assume are values for $\beta_0$ and $\beta_1$ and the allowed values or distribution of $x_i$. And of course we need a sample size $n$ that we'll vary to see how the power changes.
+- We can interpret $\beta_0$ as the log-odds of the event occurring for an individual at baseline. Let's assume our outcome is somewhat rare, say $10\%$ of people get it. We can convert this to log-odds with some R code.
+
+```{r}
+# qlogis turns a probability into a log-odds
+# plogis turns a log-odds into a probability
+qlogis(0.1)
+```
+
+. . .
+
+- So we'll say $\beta_0 = -2.2$.
+- Now we need to assume values for $x$ and an effect size $\beta_1$. For simplicity, let's say $x$ is dichotomous, and if an individual has the exposure $x=1$, their log-odds are $1.5\times$ the log-odds of someone with $x=0$, which means $\beta_1 = 1.5$.
+
+. . .
+
+- Finally, since $x$ is dichotomous, we need a baseline prevalence of $x$. Let's say the prevalence of $x$ is $40\%$, pretty common but not quite half and half.
+- So then we can sample from the model.
+
+```{r}
+generate_logistic_model_data <- function(n, beta_0, beta_1, exposure_prevalence) {
+	x <- rbinom(n, size = 1, prob = exposure_prevalence)
+	logit_p <- beta_0 + beta_1 * x
+	p <- plogis(logit_p)
+	y <- rbinom(n, size = 1, prob = p)
+	
+	out <- list(x = x, y = y)
+	return(out)
+}
+
+set.seed(100)
+test_logistic_data <- generate_logistic_model_data(100, -2.2, 1.5, 0.5)
+```
+
+. . .
+
+- Now let's walk through the test we need to do.
+- First we fit a glm.
+
+```{r}
+test_logistic_fit <- glm(
+	test_logistic_data$y ~ test_logistic_data$x,
+	family = "binomial"
+)
+
+summary(test_logistic_fit)
+```
+
+- From the summary output, we see that the p-value for our test of interest is $0.000392$. How do we get that out of the test?
+
+. . .
+
+- The summary of the glm is an S3 object! But it's a different class than the glm fit.
+
+```{r}
+glm_summary <- summary(test_logistic_fit)
+
+# The coefficients are a matrix so we put in the indices that we want
+glm_summary$coefficients[2, 4]
+```
+
+## You try it! Finish the power simulation
+
+- Now that we've walked through the building blocks, finish the power simulation. Find an $n$ where the power under our assumptions about the data is between $0.75$ and $0.85$, that range is close enough.
+
+. . .
+
+- Hint: this kind of power simulation is easier if you break it down into components, write a function for each component, and then put them all together.
+- I think you need three components: a data simulation function that returns a data set, a test function that returns a p-value for the given dataset (or returns accept/reject), and a function that puts those two parts together so you can repeat the whole thing.
+
+. . .
+
+- Hint: here's the test function.
+
+```{r}
+get_exposure_slope_p_value <- function(simulated_dataset) {
+	logistic_fit <- glm(
+		simulated_dataset$y ~ simulated_dataset$x,
+		family = "binomial"
+	)
+	
+	glm_summary <- summary(logistic_fit)
+	
+	p_value <- glm_summary$coefficients[2, 4]
+	
+	return(p_value)
+}
+```
+
+. . .
+
+- Hint: now you can put the two parts together and then get the rejections.
+
+```{r}
+logistic_power_simulation <- function(
+		N_sims, n, beta_0, beta_1, exposure_prevalence, alpha
+) {
+	simulated_datasets <- replicate(
+		...
+	)
+	
+	simulated_p_values <- sapply(
+		...
+	)
+	
+	rejections <- ...
+	
+	return(rejections)
+}
+```
+
+. . .
+
+- Hint: here's my completed function.
+- Can you repeat it for multiple `n` values now?
+
+```{r}
+logistic_power_simulation <- function(
+		N_sims, n, beta_0, beta_1, exposure_prevalence, alpha
+) {
+	simulated_datasets <- replicate(
+		N_sims,
+		generate_logistic_model_data(n, beta_0, beta_1, exposure_prevalence),
+		simplify = FALSE
+	)
+	
+	simulated_p_values <- sapply(
+		simulated_datasets,
+		get_exposure_slope_p_value
+	)
+	
+	rejections <- simulated_p_values <= alpha
+	
+	return(rejections)
+}
+```
 
 . . .
 
 ```{r}
+n_values <- seq(25, 250, 25)
 
+set.seed(110)
+logistic_sim <- sapply(
+	n_values,
+	\(n) logistic_power_simulation(
+		1000,
+		n,
+		-2.2, 1.5, 0.4, 0.05
+	)
+)
+
+logistic_sim_power <- colMeans(logistic_sim)
+
+plot(
+	n_values, logistic_sim_power,
+	xlab = "Sample size", ylab = "Power",
+	type = "l"
+)
 ```
 
+- If we look at the values, we see that a sample size of 100 gives us a power of about $81\%$ under these assumptions.
+
+## Final note: parametrizations {.incremental}
+
+- Notice that in the logistic regression simulation, we simulated our dataset using the exposure prevalence. If you know the exposure prevalence, that works fine.
+- If you **don't** know the exposure prevalence, you can instead simulate a dataset with `n_exposed` and `n_unexposed`, or assume the sample size of the two groups has to be equal like we did for the t-test example.
+- These are basically the same, we just assumed that `n_exposed / n_total = 0.4`, but there's lots of ways you can do the same thing.
+- In general, what matters the most for the power of a logistic regression is **the number of events in each group**, and you can write a simulation that takes that into account too.
+
+## Summary
+
+- Power is kind of confusing, we have to make really strong assumptions to do an *a priori* power analysis. But *post hoc* power analysis doesn't really tell us anything.
+- Calculating the power of a test directly is impossible for most tests.
+- Fortunately we can use the tools we learned in this class to do a power simulation, which can help us estimate power under various assumptions for complicated models.

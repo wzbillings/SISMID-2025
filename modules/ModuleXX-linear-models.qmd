@@ -23,11 +23,20 @@ Optional topics:
 1. Fit binomial and overdispersed binomial models, and compare them to bernoulli models on the same data.
 1. Understand the limitations of frequentist linear models and know that `brms` exists.
 
-## Linear regression {.scrollable}
+## Some notes
 
-## Logistic regression {.scrollable}
+- Throughout this course, we're attempted to use relatively few datasets in order to minimize confusion.
+- When trying to show off many different features of data, this is not so easy. Most regression models in real life do not need all of these features at one time, and they are easier to discuss separately.
+- So we have a choice ahead of us: we can either introduce many different datasets, or use a completely fabricated dataset where we know the truth and can ensure that these statistical problems are present.
+- We have elected for the latter solution, except for the final section on binomial models.
 
-## Poisson regression {.scrollable}
+## (Simulated) hemolytic anemia dataset
+
+- Suppose the Queen of Caldwych is holding court in her capital city of Hightwell when her Royal Chief Epidemiologist (you can pretend that's you, if you want) tells her, "Your Grace! I fear the grimbleth in our nation's water supply is a cause of excess cases of hemolytic anemia beyond what can be explained by other factors!"
+- Being a kind and benevolent monarch, the Queen immediately commissions a 3 year prospective study to identify all incident cases of hemolytic anemia in a spatially representative sample of 23 cities in Caldwych, including Hightwell. She also provides funding for a representative sampling of the concentration of grimbleth in the municipal drinking water supply using the latest and greatest assay that can detect parts per million to the nearest hundreth accurately.
+- You can also assume the temperature and population measurements are completely accurate.
+
+
 
 ## Interactions {.scrollable}
 
@@ -35,6 +44,6 @@ Optional topics:
 
 ## Splines {.scrollable}
 
-## Binomial regression {.scrollable}
-
 ## Bayesian models {.scrollable}
+
+## Binomial models {.scrollable}
