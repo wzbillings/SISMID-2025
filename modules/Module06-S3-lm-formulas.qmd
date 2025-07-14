@@ -1,5 +1,5 @@
 ---
-title: "Module XX: S3 and R Formulas"
+title: "Module 6: S3 and R Formulas"
 format:
   revealjs:
     toc: false
@@ -74,7 +74,7 @@ class(a_glmm)
 summary(a_glmm)
 ```
 
-## Some OOP definitions
+## Some OOP definitions {.smaller}
 
 - A **class** is a category of object. Objects of the same class have the same **fields** or attributes.
 - A **generic** is a function that has different behavior for multiple classes of inputs.
@@ -175,7 +175,7 @@ methods(class = "formula")
 
 - And that doesn't include functions like `lm()` which ONLY have methods for formulas, not generics.
 
-## Formula example
+## Formula example {.scrollable}
 
 - Say you want to get the correlation between MCV1 coverage rate and measles cases in Pakistan. You can call the `cor.test()` function by passing two vectors.
 
@@ -218,7 +218,7 @@ cor.test(
 - The basic syntax is `dv ~ iv1 + iv2 + ...`.
 - Recall that in `cor.test()` our formula didn't have a LHS -- there is no dependent variable in correlation.
 
-## You try it!
+## You try it! {.scrollable}
 
 - Before, we saw that `boxplot` had a formula method. Use `boxplot()` with a formula to make boxplots of measles cases in 2002 for each `region` in the dataset.
 

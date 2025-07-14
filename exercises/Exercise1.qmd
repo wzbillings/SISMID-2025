@@ -30,7 +30,7 @@ library(readxl)
 
 # Adjust the path if needed
 
-data <- read_excel("data/QCRC_FINAL_Deidentified.xlsx")
+data <- read_excel(here::here("data/QCRC_FINAL_Deidentified.xlsx"))
 
 # View first few rows
 

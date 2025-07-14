@@ -536,11 +536,11 @@ pwrss.t.reg(beta1 = 0.20, k = 3, r2 = 0.30, sdx = sqrt(p*(1-p)),
 
 These tests are useful for testing practically significant effects (non-inferiority/superiority) or practically null effects (equivalence).
 
-## **Non-inferiority**: 
+## **Non-inferiority**:
 
 The intervention is expected to be non-inferior to some earlier or other interventions. Assume that the effect of an earlier or some other intervention is `beta0 = 0.10`. The `beta1 - beta0` is expected to be positive and should be at least -0.05 (`margin = -0.05`). What is the minimum required sample size?
 
-## **Non-inferiority**: 
+## **Non-inferiority**:
 
 This is the case when higher values of an outcome is better. When lower values of an outcome is better the `beta1 - beta0` difference is expected to be NEGATIVE and the `margin` takes POSITIVE values.
 
@@ -994,7 +994,7 @@ pwrss.z.prop(p = 0.50, p0 = 0.50, margin = 0.01,
 
 In the following examples `p1` and `p2` are proportions for the first and second groups under alternative hypothesis. The null hypothesis state `p1 = p2` or `p1 - p2 = 0`.
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **One-sided Test:** Expecting `p1 - p2` smaller than 0 (zero).
 
@@ -1011,7 +1011,7 @@ pwrss.z.2props(p1 = 0.45, p2 = 0.50,
                arcsin.trans = FALSE)
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Two-sided Test:** Expecting `p1 - p2` smaller than 0 (zero) or greater than 0 (zero).
 
@@ -1026,7 +1026,7 @@ pwrss.z.2props(p1 = 0.45, p2 = 0.50,
                alternative = "not equal")
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Non-inferiority Test**: The case when smaller proportion is better. Expecting `p1 - p2` smaller than 0.01.
 
@@ -1041,7 +1041,7 @@ pwrss.z.2props(p1 = 0.45, p2 = 0.50, margin = 0.01,
                alternative = "non-inferior")
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Non-inferiority Test**: The case when bigger proportion is better. Expecting `p1 - p2` greater than -0.01.
 
@@ -1056,7 +1056,7 @@ pwrss.z.2props(p1 = 0.55, p2 = 0.50,  margin = -0.01,
                alternative = "non-inferior")
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Superiority Test**: The case when smaller proportion is better. Expecting `p1 - p2` smaller than -0.01.
 
@@ -1071,7 +1071,7 @@ pwrss.z.2props(p1 = 0.45, p2 = 0.50, margin = -0.01,
                alternative = "superior")
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Superiority Test**: The case when bigger proportion is better. Expecting `p1 - p2` greater than 0.01.
 
@@ -1086,7 +1086,7 @@ pwrss.z.2props(p1 = 0.55, p2 = 0.50, margin = 0.01,
                alternative = "superior")
 ```
 
-## Difference between Two Proportions 
+## Difference between Two Proportions
 
 **Equivalence Test**: Expecting `p1 - p2` between -0.01 and 0.01.
 

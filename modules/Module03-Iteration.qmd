@@ -23,6 +23,7 @@ library(printr)
 * We often want to run the same code many times, replacing just one or a few parts.
 
 ```{r}
+data("penguins", package = "palmerpenguins")
 penguins$bill_depth_mm[penguins$island == "Biscoe"] |>
 		mean(na.rm = TRUE) |>
 		round(digits = 2)
@@ -44,7 +45,6 @@ penguins$bill_depth_mm[penguins$island == "Torgersen"] |>
 * In `R`, this means running the same code multiple times in a row.
 
 ```{r example, echo = TRUE}
-data("penguins", package = "palmerpenguins")
 for (this_island in levels(penguins$island)) {
 	island_mean <-
 		penguins$bill_depth_mm[penguins$island == this_island] |>
@@ -306,8 +306,7 @@ vectorization.
 . . .
 
 ```{r}
-meas <- readRDS(here::here("data", "measles_final.Rds")) |>
-	subset(vaccine_antigen == "MCV1")
+meas <- readRDS(here::here("data", "measles_final.Rds"))
 str(meas)
 ```
 
@@ -377,7 +376,7 @@ for (i in 1:length(countries)) {
 	country_data <- subset(meas, country == countries[i])
 	
 	# Get the summary statistics for this country
-	country_cases <- country_data$Cases
+	country_cases <- country_data$measles_cases
 	country_quart <- quantile(
 		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
 	)
@@ -395,7 +394,7 @@ for (i in 1:length(countries)) {
 	country_data <- subset(meas, country == countries[i])
 	
 	# Get the summary statistics for this country
-	country_cases <- country_data$Cases
+	country_cases <- country_data$measles_cases
 	country_quart <- quantile(
 		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
 	)
@@ -423,7 +422,7 @@ for (i in 1:length(countries)) {
 	country_data <- subset(meas, country == countries[i])
 	
 	# Get the summary statistics for this country
-	country_cases <- country_data$Cases
+	country_cases <- country_data$measles_cases
 	country_quart <- quantile(
 		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
 	)
@@ -514,7 +513,7 @@ the NA's here is tricky!!)
 ## Main problem hint
 
 ```{r, eval = FALSE}
-meas$cases_per_thousand <- meas$Cases / as.numeric(meas$total_pop) * 1000
+meas$cases_per_thousand <- meas$measles_cases / meas$population * 1000
 countries <- unique(meas$country)
 
 plot(
@@ -534,7 +533,7 @@ for (...) {
 ## Main problem solution
 
 ```{r, eval = FALSE}
-meas$cases_per_thousand <- meas$Cases / as.numeric(meas$total_pop) * 1000
+meas$cases_per_thousand <- meas$measles_cases / meas$population * 1000
 countries <- unique(meas$country)
 
 plot(
@@ -548,7 +547,7 @@ plot(
 for (i in 1:length(countries)) {
 	country_data <- subset(meas, country == countries[[i]])
 	lines(
-		x = country_data$time,
+		x = country_data$year,
 		y = country_data$cases_per_thousand,
 		col = adjustcolor("black", alpha.f = 0.25)
 	)
@@ -558,7 +557,7 @@ for (i in 1:length(countries)) {
 ## Main problem solution
 
 ```{r, echo = FALSE}
-meas$cases_per_thousand <- meas$Cases / as.numeric(meas$total_pop) * 1000
+meas$cases_per_thousand <- meas$measles_cases / meas$population * 1000
 countries <- unique(meas$country)
 
 plot(
@@ -572,7 +571,7 @@ plot(
 for (i in 1:length(countries)) {
 	country_data <- subset(meas, country == countries[[i]])
 	lines(
-		x = country_data$time,
+		x = country_data$year,
 		y = country_data$cases_per_thousand,
 		col = adjustcolor("black", alpha.f = 0.25)
 	)
@@ -583,74 +582,58 @@ for (i in 1:length(countries)) {
 
 ```{r, eval = FALSE}
 # First calculate the cumulative cases, treating NA as zeroes
-cumulative_cases <- ave(
-	x = ifelse(is.na(meas$Cases), 0, meas$Cases),
-	meas$country,
+meas2 <- dplyr::arrange(meas, iso3c, year)
+meas2$cumulative_cases <- ave(
+	x = ifelse(is.na(meas2$measles_cases), 0, meas2$measles_cases),
+	meas2$country,
 	FUN = cumsum
 )
-
-# Now put the NAs back where they should be
-meas$cumulative_cases <- cumulative_cases + (meas$Cases * 0)
 
 plot(
 	NULL, NULL,
 	xlim = c(1980, 2022),
-	ylim = c(1, 6.2e6),
+	ylim = c(1, 7.3e6),
 	xlab = "Year",
-	ylab = paste0("Cumulative cases since", min(meas$time))
+	ylab = paste0("Cumulative cases since", min(meas2$year))
 )
 
 for (i in 1:length(countries)) {
-	country_data <- subset(meas, country == countries[[i]])
+	country_data <- subset(meas2, country == countries[[i]])
 	lines(
-		x = country_data$time,
+		x = country_data$year,
 		y = country_data$cumulative_cases,
 		col = adjustcolor("black", alpha.f = 0.25)
 	)
 }
-
-text(
-	x = 2020,
-	y = 6e6,
-	labels = "China →"
-)
 ```
 
 ## Bonus problem solution
 
 ```{r, echo = FALSE}
 # First calculate the cumulative cases, treating NA as zeroes
-cumulative_cases <- ave(
-	x = ifelse(is.na(meas$Cases), 0, meas$Cases),
-	meas$country,
+meas2 <- dplyr::arrange(meas, iso3c, year)
+meas2$cumulative_cases <- ave(
+	x = ifelse(is.na(meas2$measles_cases), 0, meas2$measles_cases),
+	meas2$country,
 	FUN = cumsum
 )
-
-# Now put the NAs back where they should be
-meas$cumulative_cases <- cumulative_cases + (meas$Cases * 0)
 
 plot(
 	NULL, NULL,
 	xlim = c(1980, 2022),
-	ylim = c(1, 6.2e6),
+	ylim = c(1, 7.3e6),
 	xlab = "Year",
-	ylab = "Cumulative cases per 1000 people"
+	ylab = paste0("Cumulative cases since", min(meas2$year))
 )
 
 for (i in 1:length(countries)) {
-	country_data <- subset(meas, country == countries[[i]])
+	country_data <- subset(meas2, country == countries[[i]])
 	lines(
-		x = country_data$time,
+		x = country_data$year,
 		y = country_data$cumulative_cases,
 		col = adjustcolor("black", alpha.f = 0.25)
 	)
 }
-
-text(
-	x = 2020,
-	y = 6e6,
-	labels = "China →"
-)
 ```
 
 <!--

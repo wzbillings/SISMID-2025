@@ -182,7 +182,7 @@ calculate_log_rr_se <- function(contigency_table) {
 	se <- sqrt((1/a + 1/c) - (1/(a+b) + 1/(c+d)))
 	return(se)
 }
-log_rr_se <- calculate_rr_se(contigency_table_ht)
+log_rr_se <- calculate_log_rr_se(contigency_table_ht)
 # It's on the log scale, so we have to calculate the CI like this!
 exp(log_rr_se * c(-1.96, 1.96) + log(point_estimate_rr))
 ```
@@ -229,9 +229,10 @@ get_smoking_stats <- function(resample) {
 }
 
 smoking_stats <- sapply(resamples, get_smoking_stats)
+str(smoking_stats)
 ```
 
-- The output looks really confusing. But it's an array (a more general type of matrix) so we can use `apply()`!
+- The output looks really confusing. But it's a matrix so we can use `apply()`!
 
 ```{r}
 point_estimates <- get_smoking_stats(birthwt)
@@ -290,6 +291,7 @@ smoking_cis_list <- lapply(
 	1:length(smoking_point_estimates),
 	\(i) boot::boot.ci(bootstraps_smoking, type = "bca", index = i)
 )
+str(smoking_cis_list, 1)
 ```
 
 - Cleaning them up is kind of difficult, this is a weirdly formatted S3 object.

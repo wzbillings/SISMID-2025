@@ -20,41 +20,36 @@ website:
         href: schedule.qmd
       - text: "Course Resources"
         href: references.qmd
-      - section: "Day 1"
+      - section: "Modules"
         contents:
-          - href: modules/Module00-Welcome.qmd
+          - text: "Intro slides"
+            href: modules/Module00-Welcome.qmd
             target: _blank
-          - href: modules/Module01-Intro.qmd
+          - text: "Quarto"
+            href: modules/Module01-Quarto.qmd
             target: _blank
-          - href: modules/Module02-Functions.qmd
+          - text: "Stats in R"
+            href: modules/Module02-StatReview.qmd
             target: _blank
-          - href: modules/Module03-WorkingDirectories.qmd
+          - text: "Iteration"
+            href: modules/Module03-Iteration.qmd
             target: _blank
-          - href: modules/Module04-RProject.qmd
+          - text: "Writing functions"
+            href: modules/Module04-Functions.qmd
             target: _blank
-          - href: modules/Module05-DataImportExport.qmd
+          - text: "Functional programming"
+            href: modules/Module05-FunctionalProgramming.qmd
             target: _blank
-          - href: modules/Module06-DataSubset.qmd
+          - text: "S3 and Formulas"
+            href: modules/Module06-S3-lm-formulas.qmd
             target: _blank
-          - href: modules/Module07-VarCreationClassesSummaries.qmd
-            target: _blank
-      - section: "Day 2"
+      - section: "Exercises"
         contents:
-          - href: modules/Module08-DataMergeReshape.qmd
+          - text: "Exercise 1"
+            href: exercises/Exercise1.qmd
             target: _blank
-          - href: modules/Module09-DataAnalysis.qmd
-            target: _blank
-          - href: modules/Module095-DataAnalysisWalkthrough.qmd
-            target: _blank
-          - href: modules/Module10-DataVisualization.qmd
-            target: _blank
-      - section: "Day 3"
-        contents:
-          - href: modules/Module11-RMarkdown.qmd
-            target: _blank
-          - href: modules/Module12-Iteration.qmd
-            target: _blank
-          - href: modules/Module13-Functions.qmd
+          - text: "Exercise 2"
+            href: exercises/Exercise2.qmd
             target: _blank
   repo-url: https://github.com/wzbillings/SISMID-2025
   reader-mode: true

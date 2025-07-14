@@ -1,5 +1,5 @@
 ---
-title: "ModuleXX-FunctionalProgramming"
+title: "Module 5: FunctionalProgramming"
 format:
   revealjs:
     toc: false
@@ -57,7 +57,7 @@ get_country_stats <- function(df, iso3_code){
 	country_data <- subset(df, iso3c == iso3_code)
 	
 	# Get the summary statistics for this country
-	country_cases <- country_data$Cases
+	country_cases <- country_data$measles_cases
 	country_quart <- quantile(
 		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
 	)
@@ -83,8 +83,7 @@ get_country_stats <- function(df, iso3_code){
 - We could write a loop to get stats for many countries.
 
 ```{r eval=TRUE, echo=TRUE}
-meas <- readRDS(here::here("data", "measles_final.Rds")) |>
-	subset(vaccine_antigen == "MCV1")
+meas <- readRDS(here::here("data", "measles_final.Rds"))
 country_codes <- c("IND", "PAK", "BGD", "NPL")
 
 # Loop setup
@@ -126,6 +125,7 @@ out2 <- lapply(country_codes, function(c) get_country_stats(meas, c))
 
 - The function `function(c) get_country_stats(meas, c)` is called an **anonymous function** (or sometimes a lambda).
 - It's anonymous because it has no name assigned -- this is just a shortcut for when you only need a function once.
+- In R, you can also write `\(c) ...` as a shortcut for writing `function(c) ...` as an anonymous function.
 
 . . .
 
@@ -154,23 +154,35 @@ out3 <- lapply(country_codes, get_country_stats_from_meas)
 
 ```{r}
 meas <- readRDS(here::here("data", "measles_final.Rds"))
-tapply(
-	meas$vaccine_coverage,
-	list(meas$iso3c, meas$vaccine_antigen),
+meas_long <- meas |>
+	tidyr::pivot_longer(
+		dplyr::starts_with("MCV"),
+		names_to = "vaccine_antigen",
+		values_to = "vaccine_coverage"
+	)
+out <- tapply(
+	meas_long$vaccine_coverage,
+	list(meas_long$iso3c, meas_long$vaccine_antigen),
 	FUN = mean
 )
+head(out)
 ```
+
+. . .
+
+- Uh oh.
 
 . . .
 
 - If we want to handle the missing values, we can use an anonymous function.
 
 ```{r}
-tapply(
-	meas$vaccine_coverage,
-	list(meas$iso3c, meas$vaccine_antigen),
+out <- tapply(
+	meas_long$vaccine_coverage,
+	list(meas_long$iso3c, meas_long$vaccine_antigen),
 	FUN = \(x) mean(x, na.rm = TRUE)
 )
+head(out)
 ```
 
 ## You try it with `lapply()`!

@@ -1,4 +1,4 @@
-# Code to generate the hemolytic anemia dataset
+# Code to generate the fantasy cities dataset
 # for the linear models module
 # Mostly generated from chatGPT with a few tweaks
 
@@ -210,6 +210,11 @@ panel_data <-
 		grimbleth_ppm = contaminant,
 		population, temperature, cases
 	)
+
+readr::write_csv(
+	panel_data,
+	here::here("data", "city-cases.csv")
+)
 
 # TODO
 # add age structuring?

@@ -1,9 +1,8 @@
 ---
-title: "Module XX: Functions"
+title: "Module 4: Functions"
 format: 
   revealjs:
     scrollable: true
-    smaller: true
     toc: false
 ---
 
@@ -230,7 +229,7 @@ get_country_stats <- function(df, iso3_code){
 	country_data <- subset(df, iso3c == iso3_code)
 	
 	# Get the summary statistics for this country
-	country_cases <- country_data$Cases
+	country_cases <- country_data$measles_cases
 	country_quart <- quantile(
 		country_cases, na.rm = TRUE, probs = c(0.25, 0.5, 0.75)
 	)
@@ -290,13 +289,13 @@ Step 5. Return the output neatly.
 
 ## Mini Exercise Answer
 
-```{r echo=TRUE, eval=FALSE}
+```{r echo=TRUE}
 get_incidence <- function(df, iso3_code, K = 10000){
 	
-	country_data <- subset(df, iso3c == iso3_code & vaccine_antigen == "MCV1")
+	country_data <- subset(df, iso3c == iso3_code)
 	
-	incidence <- country_data$Cases / as.numeric(country_data$total_pop) * K
-	names(incidence) <- country_data$time
+	incidence <- country_data$measles_cases / country_data$population * K
+	names(incidence) <- country_data$year
 	
 	return(incidence)
 }
@@ -319,9 +318,9 @@ res <- vector(mode = "list", length = n)
 ```{r}
 for (i in 1:n) {
 	this_country <- my_countries[[i]]
-	country_data <- subset(df, iso3c == this_country & vaccine_antigen == "MCV1")
-	incidence <- country_data$Cases / as.numeric(country_data$total_pop) * 10000
-	names(incidence) <- country_data$time
+	country_data <- subset(meas, iso3c == this_country)
+	incidence <- country_data$measles_cases / country_data$population * 10000
+	names(incidence) <- country_data$year
 	res[[i]] <- incidence
 }
 str(res)
