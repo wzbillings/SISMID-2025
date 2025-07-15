@@ -7,6 +7,10 @@
 This is the GitHub hosting the code and resources for the SISMID 2024
 Intro to R Module.
 
+# Extra slides about `gt` and `gtsummary`
+
+https://github.com/wzbillings/idig-tables
+
 ## About This Course
 
 ### Module Summary
