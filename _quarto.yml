@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!day1/"
 
 website:
   title: "SISMID R for ID Materials (2025)"
@@ -43,6 +44,27 @@ website:
           - text: "S3 and Formulas"
             href: modules/Module06-S3-lm-formulas.qmd
             target: _blank
+          - text: "Bootstrapping"
+            href: modules/bootstrapping.qmd
+            target: _blank
+          - text: "Arrow"
+            href: modules/Arrow.qmd
+            target: _blank
+          - text: "Sample size"
+            href: modules/sample-size.qmd
+            target: _blank
+          - text: "Power simulation"
+            href: modules/power-sim.qmd
+            target: _blank
+      - section: "Case studies / advanced topics"
+        contents:
+          - text: "Optim and ODEs"
+            href: modules/ODEs-optim.qmd
+            target: _blank
+          - text: "Advanced linear models"
+            href: modules/linear-models.qmd
+            target: _blank
+          - text: "Disease mapping"
       - section: "Exercises"
         contents:
           - text: "Exercise 1"

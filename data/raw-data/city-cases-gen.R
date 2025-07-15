@@ -11,10 +11,13 @@ library(ggplot2)
 set.seed(2025)
 
 # --- Constants ---
-n_cities <- 23
+n_cities <- 37
 n_months <- 36  # 3 years
 regions <- c("North", "South", "East", "West")
-region_sizes <- c(6, 3, 9, 5)  # Unequal distribution
+
+# Distribute cities in regions
+region_size_props <- c(0.26, 0.13, 0.39, 0.22)
+region_sizes <- round(region_size_props * n_cities)
 n_regions <- length(regions)
 region_ids <- rep(regions, times = region_sizes)
 
@@ -29,8 +32,8 @@ industry_groups <- c("Primary", "Secondary", "Tertiary", "Quaternary")
 region_probs <- list(
 	North = c(Primary = 0.7, Secondary = 0.15, Tertiary = 0.1, Quaternary = 0.05),
 	South = c(Primary = 0.4, Secondary = 0.5, Tertiary = 0.05, Quaternary = 0.05),
-	East  = c(Primary = 0.1, Secondary = 0.1, Tertiary = 0.2, Quaternary = 0.6),
-	West  = c(Primary = 0.1, Secondary = 0.2, Tertiary = 0.3, Quaternary = 0.4)
+	East  = c(Primary = 0.2, Secondary = 0.1, Tertiary = 0.2, Quaternary = 0.5),
+	West  = c(Primary = 0.2, Secondary = 0.2, Tertiary = 0.25, Quaternary = 0.35)
 )
 
 city_data$industry <- mapply(function(region) {
@@ -127,6 +130,10 @@ coefs <- list(
 	intercept = -8,
 	primary_industry = 0.28,
 	secondary_industry = 0.13,
+	primary_north = 0.23,
+	primary_south = 0.38,
+	primary_east = 0.05,
+	primary_west = 0.57,
 	contaminant = 0.75,
 	contaminant2 = 0.2
 )
@@ -138,6 +145,12 @@ panel_data <- panel_data |>
 			city_intercept + region_intercept +
 			coefs$primary_industry * (industry == "Primary") +
 			coefs$secondary_industry * (industry == "Secondary") +
+			(industry == "Primary") * dplyr::case_when(
+				region == "North" ~ coefs$primary_north,
+				region == "South" ~ coefs$primary_south,
+				region == "East" ~ coefs$primary_east,
+				region == "West" ~ coefs$primary_west
+			),
 			coefs$contaminant * log10(contaminant) +
 			coefs$contaminant2 * log10(contaminant) ^ 2,
 		lp = lp + log(population)
@@ -174,7 +187,10 @@ city_names_dict <- c(
 	"Woolhaven", "Ravenshold", "Easthall", "Loxley", "Thornbridge",
 	"Marstonfeld", "Hightwell", "Stonewold", "Coldby", "Nettleford",
 	"Brackenholt", "Cranwick", "Westermere", "Ashbourn", "Keldham",
-	"Mereford", "Longcross", "Harcrest"
+	"Mereford", "Longcross", "Harcrest", "Drelwich", "Foxmere",
+	"Oldenforth", "Harrowick", "Spenlow", "Wending Wyll", "Glenthorne",
+	"Crowleigh", "Byrnstead", "Tharlesby", "Ashwynd", "Kelverdon",
+	"Morlinch", "Draymere"
 )
 names(city_names_dict) <- 1:n_cities
 

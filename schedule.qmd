@@ -18,12 +18,11 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 08:45 am | Module 0 (Alex and Zane) |
-| 09:00 am - 10:00 am | Module 1 and 2 (Alex) |
+| 09:00 am - 10:00 am | Module 0, 1, 2 |
 | 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 12:00 pm | finish Module 2 (Alex), Module 3 (Zane), Module 4 (Alex) |
+| 10:30 am - 12:00 pm | module 3 and 4 |
 | 12:00 pm - 01:30 pm | Lunch (2nd floor lobby) |
-| 01:30 pm - 03:00 pm | Module 5 and 6 (Zane), Exercise 1 work time |
+| 01:30 pm - 03:00 pm | module 4 |
 | 03:00 pm - 03:30 pm | Coffee break |
 | 03:30 pm - 05:00 pm | Data science walkthrough 1, exercise 1 work time, questions |
 | 05:00 pm - 07:00 pm | **Networking night** and poster session, Randal Rollins P01 |
@@ -35,13 +34,13 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 10:00 am | catch-up, Module 7 (Zane), Module 8 (Alex) |
-| 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 12:00 pm | TBD |
-| 12:00 pm - 01:30 pm | Lunch (2nd floor lobby); **Lunch and Learn!** |
-| 01:30 pm - 03:00 pm | TBD |
+| 09:00 am - 10:30 am | Functional programming, useful packages |
+| 10:30 am - 11:00 am | Coffee break |
+| 11:00 am - 12:00 pm | S3/Formulas, arrow |
+| 12:00 pm - 01:00 pm | Lunch (2nd floor lobby); **Lunch and Learn!** |
+| 01:00 pm - 03:00 pm | Power (maybe power simulation), catch-up time |
 | 03:00 pm - 03:30 pm | Coffee break |
-| 03:30 pm - 05:00 pm | TBD |
+| 03:30 pm - 05:00 pm | Exercise 2, data science walkthrough |
 
 : {.striped .hover tbl-colwidths="[25,75]"}
 
@@ -49,8 +48,8 @@ All times are in Eastern Daylight Time (EDT; UTC-4)
 
 | Time                | Section |
 |:--------------------|:--------|
-| 08:30 am - 09:00 am | Review or advanced topics |
-| 10:00 am - 10:30 am | Coffee break |
-| 10:30 am - 12:00 pm | Review or advanced topics |
+| 09:00 am - 10:30 am | Review or advanced topics |
+| 10:30 am - 11:00 am | Coffee break |
+| 11:00 am - 12:00 pm | Review or advanced topics |
 
 : {.striped .hover tbl-colwidths="[25,75]"}
