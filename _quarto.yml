@@ -4,6 +4,8 @@ project:
   render:
     - "*.qmd"
     - "!day1/"
+    - "!day2/"
+    - "!GIS/"
 
 website:
   title: "SISMID R for ID Materials (2025)"

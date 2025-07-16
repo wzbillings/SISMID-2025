@@ -3,6 +3,8 @@ title: "Module XX: FP Applications"
 format:
   revealjs:
     toc: false
+    smaller: true
+    scrollable: true
 ---
 
 ```{r}
