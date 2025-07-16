@@ -758,11 +758,15 @@ Risk WNV in area: 0.52 (-17.22, 18.26)</code></pre>
 <ul>
 <li>This differential equation describes how a spring moves over time.</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"images"</span>, <span class="st">"spring.jpg"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
 <figure>
-<p><img data-src="..\images\spring.jpg"></p>
-<figcaption>Source: https://vamosarema.com/</figcaption>
+<p><img data-src="../images/spring.jpg"></p>
 </figure>
+</div>
+</div>
 </div>
 <div class="fragment">
 <ul>
@@ -773,26 +777,26 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Since we know this, we can make a plot of the spring movement.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Parameters</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>omega <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> pi  <span class="co"># angular frequency = sqrt(k / m)</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>A <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span>          <span class="co"># initial displacement</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>B <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> omega         <span class="co"># initial velocity divided by omega</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co"># Time vector</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.01</span>)  <span class="co"># 0 to 2 seconds</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># Analytical solution</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a>x <span class="ot">&lt;-</span> A <span class="sc">*</span> <span class="fu">cos</span>(omega <span class="sc">*</span> t) <span class="sc">+</span> B <span class="sc">*</span> <span class="fu">sin</span>(omega <span class="sc">*</span> t)</span>
-<span id="cb15-11"><a href="#cb15-11"></a></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="co"># Plot</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="fu">plot</span>(t, x, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
-<span id="cb15-14"><a href="#cb15-14"></a>     <span class="at">xlab =</span> <span class="st">"Time (seconds)"</span>, <span class="at">ylab =</span> <span class="st">"Position"</span>,</span>
-<span id="cb15-15"><a href="#cb15-15"></a>     <span class="at">main =</span> <span class="st">"Spring movement"</span>)</span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Parameters</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>omega <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> pi  <span class="co"># angular frequency = sqrt(k / m)</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>A <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span>          <span class="co"># initial displacement</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>B <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> omega         <span class="co"># initial velocity divided by omega</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co"># Time vector</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.01</span>)  <span class="co"># 0 to 2 seconds</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co"># Analytical solution</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>x <span class="ot">&lt;-</span> A <span class="sc">*</span> <span class="fu">cos</span>(omega <span class="sc">*</span> t) <span class="sc">+</span> B <span class="sc">*</span> <span class="fu">sin</span>(omega <span class="sc">*</span> t)</span>
+<span id="cb16-11"><a href="#cb16-11"></a></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co"># Plot</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="fu">plot</span>(t, x, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb16-14"><a href="#cb16-14"></a>     <span class="at">xlab =</span> <span class="st">"Time (seconds)"</span>, <span class="at">ylab =</span> <span class="st">"Position"</span>,</span>
+<span id="cb16-15"><a href="#cb16-15"></a>     <span class="at">main =</span> <span class="st">"Spring movement"</span>)</span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -805,33 +809,33 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>The only downside is that we have to write our code in a very specific way.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># We have to do some transformations to make this DE work with deSolve</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># but you can ignore that for now or you can google "transform a second order</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># DE into system of first order DEs" if you want.</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb16-5"><a href="#cb16-5"></a></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co"># Function for our DE (system)</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a>spring_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, state, parameters) {</span>
-<span id="cb16-8"><a href="#cb16-8"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parameters)), {</span>
-<span id="cb16-9"><a href="#cb16-9"></a>    dx1 <span class="ot">&lt;-</span> x2</span>
-<span id="cb16-10"><a href="#cb16-10"></a>    dx2 <span class="ot">&lt;-</span> <span class="sc">-</span>omega<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> x1</span>
-<span id="cb16-11"><a href="#cb16-11"></a>    </span>
-<span id="cb16-12"><a href="#cb16-12"></a>    <span class="fu">list</span>(<span class="fu">c</span>(dx1, dx2))</span>
-<span id="cb16-13"><a href="#cb16-13"></a>  })</span>
-<span id="cb16-14"><a href="#cb16-14"></a>}</span>
-<span id="cb16-15"><a href="#cb16-15"></a></span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="co"># Initial state: x(0) = -2, dx/dt(0) = 1</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">x1 =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
-<span id="cb16-18"><a href="#cb16-18"></a></span>
-<span id="cb16-19"><a href="#cb16-19"></a><span class="co"># Time points to solve for</span></span>
-<span id="cb16-20"><a href="#cb16-20"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb16-21"><a href="#cb16-21"></a></span>
-<span id="cb16-22"><a href="#cb16-22"></a><span class="co"># Parameters list</span></span>
-<span id="cb16-23"><a href="#cb16-23"></a>parameters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">omega =</span> omega)</span>
-<span id="cb16-24"><a href="#cb16-24"></a></span>
-<span id="cb16-25"><a href="#cb16-25"></a><span class="co"># Solve ODE</span></span>
-<span id="cb16-26"><a href="#cb16-26"></a>out <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y =</span> state, <span class="at">times =</span> times, <span class="at">func =</span> spring_ode, <span class="at">parms =</span> parameters)</span>
-<span id="cb16-27"><a href="#cb16-27"></a><span class="fu">str</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># We have to do some transformations to make this DE work with deSolve</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># but you can ignore that for now or you can google "transform a second order</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># DE into system of first order DEs" if you want.</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># Function for our DE (system)</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>spring_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, state, parameters) {</span>
+<span id="cb17-8"><a href="#cb17-8"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parameters)), {</span>
+<span id="cb17-9"><a href="#cb17-9"></a>    dx1 <span class="ot">&lt;-</span> x2</span>
+<span id="cb17-10"><a href="#cb17-10"></a>    dx2 <span class="ot">&lt;-</span> <span class="sc">-</span>omega<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> x1</span>
+<span id="cb17-11"><a href="#cb17-11"></a>    </span>
+<span id="cb17-12"><a href="#cb17-12"></a>    <span class="fu">list</span>(<span class="fu">c</span>(dx1, dx2))</span>
+<span id="cb17-13"><a href="#cb17-13"></a>  })</span>
+<span id="cb17-14"><a href="#cb17-14"></a>}</span>
+<span id="cb17-15"><a href="#cb17-15"></a></span>
+<span id="cb17-16"><a href="#cb17-16"></a><span class="co"># Initial state: x(0) = -2, dx/dt(0) = 1</span></span>
+<span id="cb17-17"><a href="#cb17-17"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">x1 =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
+<span id="cb17-18"><a href="#cb17-18"></a></span>
+<span id="cb17-19"><a href="#cb17-19"></a><span class="co"># Time points to solve for</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb17-21"><a href="#cb17-21"></a></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="co"># Parameters list</span></span>
+<span id="cb17-23"><a href="#cb17-23"></a>parameters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">omega =</span> omega)</span>
+<span id="cb17-24"><a href="#cb17-24"></a></span>
+<span id="cb17-25"><a href="#cb17-25"></a><span class="co"># Solve ODE</span></span>
+<span id="cb17-26"><a href="#cb17-26"></a>out <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y =</span> state, <span class="at">times =</span> times, <span class="at">func =</span> spring_ode, <span class="at">parms =</span> parameters)</span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="fu">str</span>(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 'deSolve' num [1:201, 1:3] 0 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 ...
  - attr(*, "dimnames")=List of 2
@@ -849,20 +853,20 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>We can plot the solution to make sure it looks the same too.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Convert to data frame</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>out_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out)</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Plot displacement vs time</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">plot</span>(out_df<span class="sc">$</span>time, out_df<span class="sc">$</span>x1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">3</span>,</span>
-<span id="cb18-6"><a href="#cb18-6"></a>     <span class="at">xlab =</span> <span class="st">"Time (seconds)"</span>, <span class="at">ylab =</span> <span class="st">"Position"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7"></a>     <span class="at">main =</span> <span class="st">"Numerical Solution of spring movement"</span>)</span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="fu">lines</span>(t, x, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb18-9"><a href="#cb18-9"></a></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Convert to data frame</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>out_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out)</span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># Plot displacement vs time</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="fu">plot</span>(out_df<span class="sc">$</span>time, out_df<span class="sc">$</span>x1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">lwd =</span> <span class="dv">3</span>,</span>
+<span id="cb19-6"><a href="#cb19-6"></a>     <span class="at">xlab =</span> <span class="st">"Time (seconds)"</span>, <span class="at">ylab =</span> <span class="st">"Position"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7"></a>     <span class="at">main =</span> <span class="st">"Numerical Solution of spring movement"</span>)</span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="fu">lines</span>(t, x, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"gray"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -917,7 +921,7 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Parameters: <span class="math inline">\(\beta\)</span> (the force of infection) and <span class="math inline">\(\gamma\)</span> (the recovery rate). I’ll arbitrarily set <span class="math inline">\(\beta = 0.01\)</span> and <span class="math inline">\(\gamma = 0.5\)</span> since I know it will make a good picture.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">gamma =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">gamma =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -925,7 +929,7 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Time points: it doesn’t really matter what we choose as long as it goes far enough out to see the patterns we’re interest in and is fine-grained enough to get good detail. For this problem we’ll use times of <span class="math inline">\(t = 0, 0.01, 0.02, \ldots, 9.99, 10\)</span>. Choosing the right ones usually takes some trial and error. Running more time points can take a really long time for complicated models.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>t_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>t_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -933,7 +937,7 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Initial state: we need how many susceptible, infected, and recovered people at time <span class="math inline">\(0\)</span>. Let’s say 1000 S, 1 I, and 0 R. Note you need at least one infected person to have an epidemic!</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -941,23 +945,23 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>A function. This is the tricky bit, and we have to write it kind of weird. We can leave out that weird <code>with()</code> thing from before, but it does make your life easier so I recommend learning it.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>sir_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, y, parameters) {</span>
-<span id="cb22-2"><a href="#cb22-2"></a>    <span class="co"># If you don't use with() you have to do this</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>    b <span class="ot">&lt;-</span> parameters[<span class="st">"beta"</span>]</span>
-<span id="cb22-4"><a href="#cb22-4"></a>    g <span class="ot">&lt;-</span> parameters[<span class="st">"gamma"</span>]</span>
-<span id="cb22-5"><a href="#cb22-5"></a>    </span>
-<span id="cb22-6"><a href="#cb22-6"></a>    S <span class="ot">&lt;-</span> y[<span class="st">"S"</span>]</span>
-<span id="cb22-7"><a href="#cb22-7"></a>    I <span class="ot">&lt;-</span> y[<span class="st">"I"</span>]</span>
-<span id="cb22-8"><a href="#cb22-8"></a>    R <span class="ot">&lt;-</span> y[<span class="st">"R"</span>]</span>
-<span id="cb22-9"><a href="#cb22-9"></a>    </span>
-<span id="cb22-10"><a href="#cb22-10"></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">*</span> I <span class="sc">*</span> S</span>
-<span id="cb22-11"><a href="#cb22-11"></a>    dI <span class="ot">&lt;-</span> b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">-</span> g <span class="sc">*</span> I</span>
-<span id="cb22-12"><a href="#cb22-12"></a>    dR <span class="ot">&lt;-</span> g <span class="sc">*</span> I</span>
-<span id="cb22-13"><a href="#cb22-13"></a>    </span>
-<span id="cb22-14"><a href="#cb22-14"></a>    <span class="co"># For deSolve the output always has to be a list like this</span></span>
-<span id="cb22-15"><a href="#cb22-15"></a>    out <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR))</span>
-<span id="cb22-16"><a href="#cb22-16"></a>    <span class="fu">return</span>(out)</span>
-<span id="cb22-17"><a href="#cb22-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>sir_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, y, parameters) {</span>
+<span id="cb23-2"><a href="#cb23-2"></a>    <span class="co"># If you don't use with() you have to do this</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>    b <span class="ot">&lt;-</span> parameters[<span class="st">"beta"</span>]</span>
+<span id="cb23-4"><a href="#cb23-4"></a>    g <span class="ot">&lt;-</span> parameters[<span class="st">"gamma"</span>]</span>
+<span id="cb23-5"><a href="#cb23-5"></a>    </span>
+<span id="cb23-6"><a href="#cb23-6"></a>    S <span class="ot">&lt;-</span> y[<span class="st">"S"</span>]</span>
+<span id="cb23-7"><a href="#cb23-7"></a>    I <span class="ot">&lt;-</span> y[<span class="st">"I"</span>]</span>
+<span id="cb23-8"><a href="#cb23-8"></a>    R <span class="ot">&lt;-</span> y[<span class="st">"R"</span>]</span>
+<span id="cb23-9"><a href="#cb23-9"></a>    </span>
+<span id="cb23-10"><a href="#cb23-10"></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">*</span> I <span class="sc">*</span> S</span>
+<span id="cb23-11"><a href="#cb23-11"></a>    dI <span class="ot">&lt;-</span> b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">-</span> g <span class="sc">*</span> I</span>
+<span id="cb23-12"><a href="#cb23-12"></a>    dR <span class="ot">&lt;-</span> g <span class="sc">*</span> I</span>
+<span id="cb23-13"><a href="#cb23-13"></a>    </span>
+<span id="cb23-14"><a href="#cb23-14"></a>    <span class="co"># For deSolve the output always has to be a list like this</span></span>
+<span id="cb23-15"><a href="#cb23-15"></a>    out <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR))</span>
+<span id="cb23-16"><a href="#cb23-16"></a>    <span class="fu">return</span>(out)</span>
+<span id="cb23-17"><a href="#cb23-17"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
@@ -965,13 +969,13 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Now we should be able to call <code>deSolve</code> and get a solution.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>sir_soln <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
-<span id="cb23-2"><a href="#cb23-2"></a>    <span class="at">y =</span> sir_initial_condition,</span>
-<span id="cb23-3"><a href="#cb23-3"></a>    <span class="at">times =</span> t_seq,</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="at">func =</span> sir_ode,</span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="at">parms =</span> sir_parms</span>
-<span id="cb23-6"><a href="#cb23-6"></a>)</span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="fu">head</span>(sir_soln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>sir_soln <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="at">y =</span> sir_initial_condition,</span>
+<span id="cb24-3"><a href="#cb24-3"></a>    <span class="at">times =</span> t_seq,</span>
+<span id="cb24-4"><a href="#cb24-4"></a>    <span class="at">func =</span> sir_ode,</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    <span class="at">parms =</span> sir_parms</span>
+<span id="cb24-6"><a href="#cb24-6"></a>)</span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="fu">head</span>(sir_soln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -1027,25 +1031,25 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Let’s plot the solution.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">plot</span>(</span>
-<span id="cb24-2"><a href="#cb24-2"></a>    <span class="cn">NULL</span>, <span class="cn">NULL</span>,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb24-4"><a href="#cb24-4"></a>    <span class="at">xlab =</span> <span class="st">"t"</span>, <span class="at">ylab =</span> <span class="st">"n"</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"deepskyblue2"</span>, <span class="st">"darkorange"</span>, <span class="st">"mediumseagreen"</span>)</span>
-<span id="cb24-7"><a href="#cb24-7"></a></span>
-<span id="cb24-8"><a href="#cb24-8"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"S"</span>], <span class="at">col =</span> my_colors[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb24-9"><a href="#cb24-9"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"I"</span>], <span class="at">col =</span> my_colors[<span class="dv">2</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"R"</span>], <span class="at">col =</span> my_colors[<span class="dv">3</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb24-11"><a href="#cb24-11"></a><span class="fu">legend</span>(</span>
-<span id="cb24-12"><a href="#cb24-12"></a>    <span class="st">"topright"</span>,</span>
-<span id="cb24-13"><a href="#cb24-13"></a>    <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"S"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>),</span>
-<span id="cb24-14"><a href="#cb24-14"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> my_colors</span>
-<span id="cb24-15"><a href="#cb24-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">plot</span>(</span>
+<span id="cb25-2"><a href="#cb25-2"></a>    <span class="cn">NULL</span>, <span class="cn">NULL</span>,</span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    <span class="at">xlab =</span> <span class="st">"t"</span>, <span class="at">ylab =</span> <span class="st">"n"</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>)</span>
+<span id="cb25-6"><a href="#cb25-6"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"deepskyblue2"</span>, <span class="st">"darkorange"</span>, <span class="st">"mediumseagreen"</span>)</span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"S"</span>], <span class="at">col =</span> my_colors[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"I"</span>], <span class="at">col =</span> my_colors[<span class="dv">2</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="fu">lines</span>(sir_soln[,<span class="st">"time"</span>], sir_soln[,<span class="st">"R"</span>], <span class="at">col =</span> my_colors[<span class="dv">3</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="fu">legend</span>(</span>
+<span id="cb25-12"><a href="#cb25-12"></a>    <span class="st">"topright"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13"></a>    <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"S"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>),</span>
+<span id="cb25-14"><a href="#cb25-14"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> my_colors</span>
+<span id="cb25-15"><a href="#cb25-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1085,35 +1089,35 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Solution!</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>sirs_initial_condition <span class="ot">&lt;-</span> sir_initial_condition</span>
-<span id="cb25-2"><a href="#cb25-2"></a>sirs_t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="fl">0.01</span>)</span>
-<span id="cb25-3"><a href="#cb25-3"></a>sirs_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(sir_parms, <span class="at">zeta =</span> <span class="fl">0.25</span>)</span>
-<span id="cb25-4"><a href="#cb25-4"></a>sirs_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, y, parameters) {</span>
-<span id="cb25-5"><a href="#cb25-5"></a>    <span class="co"># If you don't use with() you have to do this</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>    b <span class="ot">&lt;-</span> parameters[<span class="st">"beta"</span>]</span>
-<span id="cb25-7"><a href="#cb25-7"></a>    g <span class="ot">&lt;-</span> parameters[<span class="st">"gamma"</span>]</span>
-<span id="cb25-8"><a href="#cb25-8"></a>    z <span class="ot">&lt;-</span> parameters[<span class="st">"zeta"</span>]</span>
-<span id="cb25-9"><a href="#cb25-9"></a>    </span>
-<span id="cb25-10"><a href="#cb25-10"></a>    S <span class="ot">&lt;-</span> y[<span class="st">"S"</span>]</span>
-<span id="cb25-11"><a href="#cb25-11"></a>    I <span class="ot">&lt;-</span> y[<span class="st">"I"</span>]</span>
-<span id="cb25-12"><a href="#cb25-12"></a>    R <span class="ot">&lt;-</span> y[<span class="st">"R"</span>]</span>
-<span id="cb25-13"><a href="#cb25-13"></a>    </span>
-<span id="cb25-14"><a href="#cb25-14"></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">+</span> z <span class="sc">*</span> R</span>
-<span id="cb25-15"><a href="#cb25-15"></a>    dI <span class="ot">&lt;-</span> b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">-</span> g <span class="sc">*</span> I</span>
-<span id="cb25-16"><a href="#cb25-16"></a>    dR <span class="ot">&lt;-</span> g <span class="sc">*</span> I <span class="sc">-</span> z <span class="sc">*</span> R</span>
-<span id="cb25-17"><a href="#cb25-17"></a>    </span>
-<span id="cb25-18"><a href="#cb25-18"></a>    <span class="co"># For deSolve the output always has to be a list like this</span></span>
-<span id="cb25-19"><a href="#cb25-19"></a>    out <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR))</span>
-<span id="cb25-20"><a href="#cb25-20"></a>    <span class="fu">return</span>(out)</span>
-<span id="cb25-21"><a href="#cb25-21"></a>}</span>
-<span id="cb25-22"><a href="#cb25-22"></a></span>
-<span id="cb25-23"><a href="#cb25-23"></a>sirs_soln <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
-<span id="cb25-24"><a href="#cb25-24"></a>    <span class="at">y =</span> sirs_initial_condition,</span>
-<span id="cb25-25"><a href="#cb25-25"></a>    <span class="at">times =</span> sirs_t,</span>
-<span id="cb25-26"><a href="#cb25-26"></a>    <span class="at">func =</span> sirs_ode,</span>
-<span id="cb25-27"><a href="#cb25-27"></a>    <span class="at">parms =</span> sirs_parms</span>
-<span id="cb25-28"><a href="#cb25-28"></a>)</span>
-<span id="cb25-29"><a href="#cb25-29"></a><span class="fu">head</span>(sirs_soln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>sirs_initial_condition <span class="ot">&lt;-</span> sir_initial_condition</span>
+<span id="cb26-2"><a href="#cb26-2"></a>sirs_t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="fl">0.01</span>)</span>
+<span id="cb26-3"><a href="#cb26-3"></a>sirs_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(sir_parms, <span class="at">zeta =</span> <span class="fl">0.25</span>)</span>
+<span id="cb26-4"><a href="#cb26-4"></a>sirs_ode <span class="ot">&lt;-</span> <span class="cf">function</span>(t, y, parameters) {</span>
+<span id="cb26-5"><a href="#cb26-5"></a>    <span class="co"># If you don't use with() you have to do this</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>    b <span class="ot">&lt;-</span> parameters[<span class="st">"beta"</span>]</span>
+<span id="cb26-7"><a href="#cb26-7"></a>    g <span class="ot">&lt;-</span> parameters[<span class="st">"gamma"</span>]</span>
+<span id="cb26-8"><a href="#cb26-8"></a>    z <span class="ot">&lt;-</span> parameters[<span class="st">"zeta"</span>]</span>
+<span id="cb26-9"><a href="#cb26-9"></a>    </span>
+<span id="cb26-10"><a href="#cb26-10"></a>    S <span class="ot">&lt;-</span> y[<span class="st">"S"</span>]</span>
+<span id="cb26-11"><a href="#cb26-11"></a>    I <span class="ot">&lt;-</span> y[<span class="st">"I"</span>]</span>
+<span id="cb26-12"><a href="#cb26-12"></a>    R <span class="ot">&lt;-</span> y[<span class="st">"R"</span>]</span>
+<span id="cb26-13"><a href="#cb26-13"></a>    </span>
+<span id="cb26-14"><a href="#cb26-14"></a>    dS <span class="ot">&lt;-</span> <span class="sc">-</span>b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">+</span> z <span class="sc">*</span> R</span>
+<span id="cb26-15"><a href="#cb26-15"></a>    dI <span class="ot">&lt;-</span> b <span class="sc">*</span> I <span class="sc">*</span> S <span class="sc">-</span> g <span class="sc">*</span> I</span>
+<span id="cb26-16"><a href="#cb26-16"></a>    dR <span class="ot">&lt;-</span> g <span class="sc">*</span> I <span class="sc">-</span> z <span class="sc">*</span> R</span>
+<span id="cb26-17"><a href="#cb26-17"></a>    </span>
+<span id="cb26-18"><a href="#cb26-18"></a>    <span class="co"># For deSolve the output always has to be a list like this</span></span>
+<span id="cb26-19"><a href="#cb26-19"></a>    out <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(dS, dI, dR))</span>
+<span id="cb26-20"><a href="#cb26-20"></a>    <span class="fu">return</span>(out)</span>
+<span id="cb26-21"><a href="#cb26-21"></a>}</span>
+<span id="cb26-22"><a href="#cb26-22"></a></span>
+<span id="cb26-23"><a href="#cb26-23"></a>sirs_soln <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
+<span id="cb26-24"><a href="#cb26-24"></a>    <span class="at">y =</span> sirs_initial_condition,</span>
+<span id="cb26-25"><a href="#cb26-25"></a>    <span class="at">times =</span> sirs_t,</span>
+<span id="cb26-26"><a href="#cb26-26"></a>    <span class="at">func =</span> sirs_ode,</span>
+<span id="cb26-27"><a href="#cb26-27"></a>    <span class="at">parms =</span> sirs_parms</span>
+<span id="cb26-28"><a href="#cb26-28"></a>)</span>
+<span id="cb26-29"><a href="#cb26-29"></a><span class="fu">head</span>(sirs_soln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -1169,26 +1173,26 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Let’s plot this solution the same way.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">plot</span>(</span>
-<span id="cb26-2"><a href="#cb26-2"></a>    <span class="cn">NULL</span>, <span class="cn">NULL</span>,</span>
-<span id="cb26-3"><a href="#cb26-3"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="at">xlab =</span> <span class="st">"t"</span>, <span class="at">ylab =</span> <span class="st">"n"</span>,</span>
-<span id="cb26-5"><a href="#cb26-5"></a>    <span class="at">main =</span> <span class="st">"SIRS model solution"</span></span>
-<span id="cb26-6"><a href="#cb26-6"></a>)</span>
-<span id="cb26-7"><a href="#cb26-7"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"deepskyblue2"</span>, <span class="st">"darkorange"</span>, <span class="st">"mediumseagreen"</span>)</span>
-<span id="cb26-8"><a href="#cb26-8"></a></span>
-<span id="cb26-9"><a href="#cb26-9"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"S"</span>], <span class="at">col =</span> my_colors[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb26-10"><a href="#cb26-10"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"I"</span>], <span class="at">col =</span> my_colors[<span class="dv">2</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb26-11"><a href="#cb26-11"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"R"</span>], <span class="at">col =</span> my_colors[<span class="dv">3</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb26-12"><a href="#cb26-12"></a><span class="fu">legend</span>(</span>
-<span id="cb26-13"><a href="#cb26-13"></a>    <span class="st">"topright"</span>,</span>
-<span id="cb26-14"><a href="#cb26-14"></a>    <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"S"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>),</span>
-<span id="cb26-15"><a href="#cb26-15"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> my_colors</span>
-<span id="cb26-16"><a href="#cb26-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">plot</span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>    <span class="cn">NULL</span>, <span class="cn">NULL</span>,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb27-4"><a href="#cb27-4"></a>    <span class="at">xlab =</span> <span class="st">"t"</span>, <span class="at">ylab =</span> <span class="st">"n"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>    <span class="at">main =</span> <span class="st">"SIRS model solution"</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"deepskyblue2"</span>, <span class="st">"darkorange"</span>, <span class="st">"mediumseagreen"</span>)</span>
+<span id="cb27-8"><a href="#cb27-8"></a></span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"S"</span>], <span class="at">col =</span> my_colors[<span class="dv">1</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"I"</span>], <span class="at">col =</span> my_colors[<span class="dv">2</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="fu">lines</span>(sirs_soln[,<span class="st">"time"</span>], sirs_soln[,<span class="st">"R"</span>], <span class="at">col =</span> my_colors[<span class="dv">3</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="fu">legend</span>(</span>
+<span id="cb27-13"><a href="#cb27-13"></a>    <span class="st">"topright"</span>,</span>
+<span id="cb27-14"><a href="#cb27-14"></a>    <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"S"</span>, <span class="st">"I"</span>, <span class="st">"R"</span>),</span>
+<span id="cb27-15"><a href="#cb27-15"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> my_colors</span>
+<span id="cb27-16"><a href="#cb27-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+<p><img data-src="ODEs-optim_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1234,8 +1238,8 @@ f(x) = A\cos(\omega t) + B \sin(\omega t)
 <li>Let’s walk through a quick implementation of a model fit. First load the data.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"SIR-observed.csv"</span>))</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"SIR-observed.csv"</span>))</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -1284,43 +1288,43 @@ SSR = \sum_{i = 1}^n \bigg(I - \hat{I}(\beta, \gamma)\bigg)^2
 <li>So we need to define a function for optim that takes the parameters as an argument, calculates the <span class="math inline">\(\hat{I}\)</span> values for those parameters, and then gets the SSR between the observed and predicted case counts.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>sir_pred <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
-<span id="cb28-2"><a href="#cb28-2"></a>    sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> par[<span class="dv">1</span>], <span class="at">gamma =</span> par[<span class="dv">2</span>])</span>
-<span id="cb28-3"><a href="#cb28-3"></a>    sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
-<span id="cb28-4"><a href="#cb28-4"></a>    times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb28-5"><a href="#cb28-5"></a>    </span>
-<span id="cb28-6"><a href="#cb28-6"></a>    sim <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
-<span id="cb28-7"><a href="#cb28-7"></a>        <span class="at">y =</span> sir_initial_condition,</span>
-<span id="cb28-8"><a href="#cb28-8"></a>        <span class="at">times =</span> times,</span>
-<span id="cb28-9"><a href="#cb28-9"></a>        <span class="at">fun =</span> sir_ode,</span>
-<span id="cb28-10"><a href="#cb28-10"></a>        <span class="at">parms =</span> sir_parms</span>
-<span id="cb28-11"><a href="#cb28-11"></a>    )</span>
-<span id="cb28-12"><a href="#cb28-12"></a>    </span>
-<span id="cb28-13"><a href="#cb28-13"></a>    i_hat <span class="ot">&lt;-</span> sim[, <span class="st">"I"</span>]</span>
-<span id="cb28-14"><a href="#cb28-14"></a>    fit_ssr <span class="ot">&lt;-</span> <span class="fu">sum</span>((dat<span class="sc">$</span>total_cases <span class="sc">-</span> i_hat) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb28-15"><a href="#cb28-15"></a>    <span class="fu">return</span>(fit_ssr)</span>
-<span id="cb28-16"><a href="#cb28-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>sir_pred <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
+<span id="cb29-2"><a href="#cb29-2"></a>    sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> par[<span class="dv">1</span>], <span class="at">gamma =</span> par[<span class="dv">2</span>])</span>
+<span id="cb29-3"><a href="#cb29-3"></a>    sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
+<span id="cb29-4"><a href="#cb29-4"></a>    times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb29-5"><a href="#cb29-5"></a>    </span>
+<span id="cb29-6"><a href="#cb29-6"></a>    sim <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
+<span id="cb29-7"><a href="#cb29-7"></a>        <span class="at">y =</span> sir_initial_condition,</span>
+<span id="cb29-8"><a href="#cb29-8"></a>        <span class="at">times =</span> times,</span>
+<span id="cb29-9"><a href="#cb29-9"></a>        <span class="at">fun =</span> sir_ode,</span>
+<span id="cb29-10"><a href="#cb29-10"></a>        <span class="at">parms =</span> sir_parms</span>
+<span id="cb29-11"><a href="#cb29-11"></a>    )</span>
+<span id="cb29-12"><a href="#cb29-12"></a>    </span>
+<span id="cb29-13"><a href="#cb29-13"></a>    i_hat <span class="ot">&lt;-</span> sim[, <span class="st">"I"</span>]</span>
+<span id="cb29-14"><a href="#cb29-14"></a>    fit_ssr <span class="ot">&lt;-</span> <span class="fu">sum</span>((dat<span class="sc">$</span>total_cases <span class="sc">-</span> i_hat) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb29-15"><a href="#cb29-15"></a>    <span class="fu">return</span>(fit_ssr)</span>
+<span id="cb29-16"><a href="#cb29-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Now we can run <code>optim()</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>res <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
-<span id="cb29-2"><a href="#cb29-2"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>),</span>
-<span id="cb29-3"><a href="#cb29-3"></a>    <span class="at">fn =</span> sir_pred,</span>
-<span id="cb29-4"><a href="#cb29-4"></a>    <span class="at">hessian =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb29-5"><a href="#cb29-5"></a>    <span class="at">method =</span> <span class="st">"L-BFGS-B"</span>,</span>
-<span id="cb29-6"><a href="#cb29-6"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb29-7"><a href="#cb29-7"></a>)</span>
-<span id="cb29-8"><a href="#cb29-8"></a></span>
-<span id="cb29-9"><a href="#cb29-9"></a>point_sir <span class="ot">&lt;-</span> res<span class="sc">$</span>par</span>
-<span id="cb29-10"><a href="#cb29-10"></a>se_sir <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">solve</span>(res<span class="sc">$</span>hessian)))</span>
-<span id="cb29-11"><a href="#cb29-11"></a>ci_sir <span class="ot">&lt;-</span> point_sir <span class="sc">+</span> <span class="fu">outer</span>(se_sir, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>))</span>
-<span id="cb29-12"><a href="#cb29-12"></a></span>
-<span id="cb29-13"><a href="#cb29-13"></a>out <span class="ot">&lt;-</span> <span class="fu">cbind</span>(point_sir, ci_sir) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">5</span>)</span>
-<span id="cb29-14"><a href="#cb29-14"></a><span class="fu">rownames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"gamma"</span>)</span>
-<span id="cb29-15"><a href="#cb29-15"></a><span class="fu">colnames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"point"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span>
-<span id="cb29-16"><a href="#cb29-16"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>res <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
+<span id="cb30-2"><a href="#cb30-2"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb30-3"><a href="#cb30-3"></a>    <span class="at">fn =</span> sir_pred,</span>
+<span id="cb30-4"><a href="#cb30-4"></a>    <span class="at">hessian =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb30-5"><a href="#cb30-5"></a>    <span class="at">method =</span> <span class="st">"L-BFGS-B"</span>,</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb30-7"><a href="#cb30-7"></a>)</span>
+<span id="cb30-8"><a href="#cb30-8"></a></span>
+<span id="cb30-9"><a href="#cb30-9"></a>point_sir <span class="ot">&lt;-</span> res<span class="sc">$</span>par</span>
+<span id="cb30-10"><a href="#cb30-10"></a>se_sir <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">solve</span>(res<span class="sc">$</span>hessian)))</span>
+<span id="cb30-11"><a href="#cb30-11"></a>ci_sir <span class="ot">&lt;-</span> point_sir <span class="sc">+</span> <span class="fu">outer</span>(se_sir, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>))</span>
+<span id="cb30-12"><a href="#cb30-12"></a></span>
+<span id="cb30-13"><a href="#cb30-13"></a>out <span class="ot">&lt;-</span> <span class="fu">cbind</span>(point_sir, ci_sir) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">5</span>)</span>
+<span id="cb30-14"><a href="#cb30-14"></a><span class="fu">rownames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"gamma"</span>)</span>
+<span id="cb30-15"><a href="#cb30-15"></a><span class="fu">colnames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"point"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span>
+<span id="cb30-16"><a href="#cb30-16"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>
@@ -1365,44 +1369,44 @@ SSR = \sum_{i = 1}^n \bigg(I - \hat{I}(\beta, \gamma)\bigg)^2
 <li>Getting a handle on these kind of problems requires a lot of practice and involves a lot of stuff that we unfortunately don’t have time to talk about.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>sir_pred <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
-<span id="cb30-2"><a href="#cb30-2"></a>    sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> par[<span class="dv">1</span>], <span class="at">gamma =</span> par[<span class="dv">2</span>])</span>
-<span id="cb30-3"><a href="#cb30-3"></a>    sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
-<span id="cb30-4"><a href="#cb30-4"></a>    times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">1</span>)</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    </span>
-<span id="cb30-6"><a href="#cb30-6"></a>    <span class="co"># New part</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a>    <span class="co"># Return a huge number if the paramaters are negative</span></span>
-<span id="cb30-8"><a href="#cb30-8"></a>    <span class="cf">if</span> (<span class="fu">any</span>(par <span class="sc">&lt;=</span> <span class="dv">0</span>)) <span class="fu">return</span>(<span class="fl">1e12</span>)</span>
-<span id="cb30-9"><a href="#cb30-9"></a>    </span>
-<span id="cb30-10"><a href="#cb30-10"></a>    sim <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
-<span id="cb30-11"><a href="#cb30-11"></a>        <span class="at">y =</span> sir_initial_condition,</span>
-<span id="cb30-12"><a href="#cb30-12"></a>        <span class="at">times =</span> times,</span>
-<span id="cb30-13"><a href="#cb30-13"></a>        <span class="at">fun =</span> sir_ode,</span>
-<span id="cb30-14"><a href="#cb30-14"></a>        <span class="at">parms =</span> sir_parms</span>
-<span id="cb30-15"><a href="#cb30-15"></a>    )</span>
-<span id="cb30-16"><a href="#cb30-16"></a>    </span>
-<span id="cb30-17"><a href="#cb30-17"></a>    i_hat <span class="ot">&lt;-</span> sim[, <span class="st">"I"</span>]</span>
-<span id="cb30-18"><a href="#cb30-18"></a>    fit_ssr <span class="ot">&lt;-</span> <span class="fu">sum</span>((dat<span class="sc">$</span>total_cases <span class="sc">-</span> i_hat) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb30-19"><a href="#cb30-19"></a>    <span class="fu">return</span>(fit_ssr)</span>
-<span id="cb30-20"><a href="#cb30-20"></a>}</span>
-<span id="cb30-21"><a href="#cb30-21"></a></span>
-<span id="cb30-22"><a href="#cb30-22"></a><span class="fu">set.seed</span>(<span class="dv">103</span>)</span>
-<span id="cb30-23"><a href="#cb30-23"></a>res <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
-<span id="cb30-24"><a href="#cb30-24"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>),</span>
-<span id="cb30-25"><a href="#cb30-25"></a>    <span class="at">fn =</span> sir_pred,</span>
-<span id="cb30-26"><a href="#cb30-26"></a>    <span class="at">hessian =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb30-27"><a href="#cb30-27"></a>    <span class="co"># Use simulated annealing, which can be better for these kind of problems.</span></span>
-<span id="cb30-28"><a href="#cb30-28"></a>    <span class="at">method =</span> <span class="st">"SANN"</span></span>
-<span id="cb30-29"><a href="#cb30-29"></a>)</span>
-<span id="cb30-30"><a href="#cb30-30"></a></span>
-<span id="cb30-31"><a href="#cb30-31"></a>point_sir <span class="ot">&lt;-</span> res<span class="sc">$</span>par</span>
-<span id="cb30-32"><a href="#cb30-32"></a>se_sir <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">solve</span>(res<span class="sc">$</span>hessian)))</span>
-<span id="cb30-33"><a href="#cb30-33"></a>ci_sir <span class="ot">&lt;-</span> point_sir <span class="sc">+</span> <span class="fu">outer</span>(se_sir, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>))</span>
-<span id="cb30-34"><a href="#cb30-34"></a></span>
-<span id="cb30-35"><a href="#cb30-35"></a>out <span class="ot">&lt;-</span> <span class="fu">cbind</span>(point_sir, ci_sir) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">5</span>)</span>
-<span id="cb30-36"><a href="#cb30-36"></a><span class="fu">rownames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"gamma"</span>)</span>
-<span id="cb30-37"><a href="#cb30-37"></a><span class="fu">colnames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"point"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span>
-<span id="cb30-38"><a href="#cb30-38"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>sir_pred <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
+<span id="cb31-2"><a href="#cb31-2"></a>    sir_parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beta =</span> par[<span class="dv">1</span>], <span class="at">gamma =</span> par[<span class="dv">2</span>])</span>
+<span id="cb31-3"><a href="#cb31-3"></a>    sir_initial_condition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">1000</span>, <span class="at">I =</span> <span class="dv">1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
+<span id="cb31-4"><a href="#cb31-4"></a>    times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">1</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a>    </span>
+<span id="cb31-6"><a href="#cb31-6"></a>    <span class="co"># New part</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>    <span class="co"># Return a huge number if the paramaters are negative</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>    <span class="cf">if</span> (<span class="fu">any</span>(par <span class="sc">&lt;=</span> <span class="dv">0</span>)) <span class="fu">return</span>(<span class="fl">1e12</span>)</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    </span>
+<span id="cb31-10"><a href="#cb31-10"></a>    sim <span class="ot">&lt;-</span> deSolve<span class="sc">::</span><span class="fu">ode</span>(</span>
+<span id="cb31-11"><a href="#cb31-11"></a>        <span class="at">y =</span> sir_initial_condition,</span>
+<span id="cb31-12"><a href="#cb31-12"></a>        <span class="at">times =</span> times,</span>
+<span id="cb31-13"><a href="#cb31-13"></a>        <span class="at">fun =</span> sir_ode,</span>
+<span id="cb31-14"><a href="#cb31-14"></a>        <span class="at">parms =</span> sir_parms</span>
+<span id="cb31-15"><a href="#cb31-15"></a>    )</span>
+<span id="cb31-16"><a href="#cb31-16"></a>    </span>
+<span id="cb31-17"><a href="#cb31-17"></a>    i_hat <span class="ot">&lt;-</span> sim[, <span class="st">"I"</span>]</span>
+<span id="cb31-18"><a href="#cb31-18"></a>    fit_ssr <span class="ot">&lt;-</span> <span class="fu">sum</span>((dat<span class="sc">$</span>total_cases <span class="sc">-</span> i_hat) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb31-19"><a href="#cb31-19"></a>    <span class="fu">return</span>(fit_ssr)</span>
+<span id="cb31-20"><a href="#cb31-20"></a>}</span>
+<span id="cb31-21"><a href="#cb31-21"></a></span>
+<span id="cb31-22"><a href="#cb31-22"></a><span class="fu">set.seed</span>(<span class="dv">103</span>)</span>
+<span id="cb31-23"><a href="#cb31-23"></a>res <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
+<span id="cb31-24"><a href="#cb31-24"></a>    <span class="at">par =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.1</span>),</span>
+<span id="cb31-25"><a href="#cb31-25"></a>    <span class="at">fn =</span> sir_pred,</span>
+<span id="cb31-26"><a href="#cb31-26"></a>    <span class="at">hessian =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb31-27"><a href="#cb31-27"></a>    <span class="co"># Use simulated annealing, which can be better for these kind of problems.</span></span>
+<span id="cb31-28"><a href="#cb31-28"></a>    <span class="at">method =</span> <span class="st">"SANN"</span></span>
+<span id="cb31-29"><a href="#cb31-29"></a>)</span>
+<span id="cb31-30"><a href="#cb31-30"></a></span>
+<span id="cb31-31"><a href="#cb31-31"></a>point_sir <span class="ot">&lt;-</span> res<span class="sc">$</span>par</span>
+<span id="cb31-32"><a href="#cb31-32"></a>se_sir <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">solve</span>(res<span class="sc">$</span>hessian)))</span>
+<span id="cb31-33"><a href="#cb31-33"></a>ci_sir <span class="ot">&lt;-</span> point_sir <span class="sc">+</span> <span class="fu">outer</span>(se_sir, <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="fl">1.96</span>))</span>
+<span id="cb31-34"><a href="#cb31-34"></a></span>
+<span id="cb31-35"><a href="#cb31-35"></a>out <span class="ot">&lt;-</span> <span class="fu">cbind</span>(point_sir, ci_sir) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">5</span>)</span>
+<span id="cb31-36"><a href="#cb31-36"></a><span class="fu">rownames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"beta"</span>, <span class="st">"gamma"</span>)</span>
+<span id="cb31-37"><a href="#cb31-37"></a><span class="fu">colnames</span>(out) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"point"</span>, <span class="st">"lower"</span>, <span class="st">"upper"</span>)</span>
+<span id="cb31-38"><a href="#cb31-38"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table>
 <thead>

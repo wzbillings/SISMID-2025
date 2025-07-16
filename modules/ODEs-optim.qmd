@@ -266,7 +266,10 @@ is a differential equation from physics.
 
 - This differential equation describes how a spring moves over time.
 
-![Source: https://vamosarema.com/](..\images\spring.jpg)
+```{r}
+knitr::include_graphics(here::here("images", "spring.jpg"))
+```
+
 
 . . .
 
