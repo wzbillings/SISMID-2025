@@ -19,6 +19,13 @@ nocite: "@*"
 (great general information)
 - Open Case Studies: https://www.opencasestudies.org/  
 (resource for specific public health cases with statistical implementation and interpretation)
+- Tidytuesday: https://github.com/rfordatascience/tidytuesday (data for R practice)
+
+**Slides on making tables**
+https://github.com/wzbillings/idig-tables
+
+**Book on SIR-type modeling with differential equations**
+https://andreashandel.github.io/IDEMAbook/
 
 # Need help?
 
